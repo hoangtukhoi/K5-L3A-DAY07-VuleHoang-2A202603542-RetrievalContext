@@ -1,0 +1,35 @@
+{
+ "base": {
+  "runs": "11/11 ok",
+  "tool_use": "11/11",
+  "searches_dist": {
+   "1": 11
+  },
+  "context_evidence_rate": "7/9",
+  "answered": "9/9",
+  "refused_answerable": "0/9",
+  "abstain_correct_auto": "2/2",
+  "citation_in_context": "23/23",
+  "avg_context_chars": 2102,
+  "avg_seconds": 4.32,
+  "total_cost_usd": 0.00651,
+  "avg_prompt_tokens": 3218
+ },
+ "two_tools": {
+  "runs": "11/11 ok",
+  "tool_use": "11/11",
+  "searches_dist": {
+   "2": 8,
+   "3": 3
+  },
+  "context_evidence_rate": "8/9",
+  "answered": "9/9",
+  "refused_answerable": "0/9",
+  "abstain_correct_auto": "2/2",
+  "citation_in_context": "27/27",
+  "avg_context_chars": 3032,
+  "avg_seconds": 4.5,
+  "total_cost_usd": 0.00843,
+  "avg_prompt_tokens": 4629
+ }
+}

@@ -1,0 +1,957 @@
+{
+ "config": {
+  "name": "base",
+  "tools": [
+   "dense"
+  ],
+  "top_k": 3,
+  "max_searches": 1,
+  "budget": 2400,
+  "neighbors": 0,
+  "model": "anthropic/claude-haiku-5.5",
+  "notes": {
+   "hypothesis": "reference: single dense retrieval"
+  }
+ },
+ "traces": [
+  {
+   "query_id": "T01",
+   "split": "test",
+   "answerable": true,
+   "config": "base",
+   "question": "Vì sao phương thức static (phương thức lớp) không thể dùng biến thực thể hay tham chiếu this?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "Phương thức static (phương thức lớp) không gắn với một đối tượng cụ thể nào, nên không thể dùng biến thực thể hay `this`:\n\n- Phương thức lớp không biết đến đối tượng chủ của các thành viên thực thể. Khi truy cập biến thực thể `name` trong `main`, Java thực chất hiểu là `this.name`, nhưng `main` không gắn với đối tượng nào nên không có `this` [root_data-p169-B01].\n- Trình biên dịch không xác định được biến thực thể `name` thuộc đối tượng nào, dù trên heap có nhiều đối tượng hay chỉ một. Vì vậy nó báo lỗi rằng biến thực thể không thể được gọi từ ngữ cảnh static [root_data-p168-B00].\n- Tham chiếu `this` cũng không dùng được trong phương thức lớp vì không xác định được đối tượng \"này\" là đối tượng nào [root_data-p168-B00].\n- Nói ngắn gọn: phương thức static chỉ gắn với lớp, không phụ thuộc vào đối tượng nào, nên chỉ truy cập được biến static và không truy cập được biến hay phương thức thực thể [root_data-p172-B01].\n\nLưu ý: tôi chỉ tìm được hai đoạn liên quan trước khi hết lượt tìm kiếm, nên câu trả lời chỉ dựa trên các đoạn này.",
+   "citations": [
+    "root_data-p169-B01",
+    "root_data-p168-B00",
+    "root_data-p172-B01"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p169-B01",
+    "root_data-p168-B00",
+    "root_data-p172-B01"
+   ],
+   "context": [
+    {
+     "id": "root_data-p169-B01",
+     "page": 169,
+     "text": "Một phương thức lớp, trái lại, không thể truy nhập thẳng đến biến thực thể hay phương thức thực thể đơn giản là vì phương thức lớp không hề biết đến đối tượng chủ của các thành viên thực thể kia. Ví dụ, khi biến thực thể name được truy nhập tại phương thức main tại Hình 10.3, thực chất Java hiểu đó là this. name. Nhưng main là phương thức lớp, nó không gắn với đối tượng nào nên không có tham chiếu this để có thể gọi this.name. Tất cả quy tắc đều được dẫn xuất từ bản chất của kh ái niệm. Do đó, thực ra ta không cần nhớ quy tắc một khi đã nắm vững được khái niệm."
+    },
+    {
+     "id": "root_data-p168-B00",
+     "page": 168,
+     "text": "Hình 10.3: Ph ươ ng th ức l ớp không th ể truy nh ập bi ến th ực th ể. Nếu một biến thực thể được dùng đến trong một phươn g thức lớp, trình biên dịch sẽ không hiểu ta đang nói đến biến thực thể củ a đối tượng nào, bất kể trong heap đang có 10 hay chỉ có duy nhất một đối tượng thuộc lớp đó. Ví dụ, chương trình trong Hình 10.3 bị lỗi biên dịch vì phương th ức main() cố truy nhập biến name. Do main() là phương thức static, trình biên dịch kh ông hiểu name mà main() đang nói đến là biến thực thể name của đối tượng nào. Lờ i thông báo lỗi có nội dung: biến thực thể name không thể được gọi đến từ một ngữ cản h static. Ta dễ thấy rằng tham chiếu this cũng không thể sử dụng trong một phương thức lớp, bởi nó không hiểu đối tượng 'này' là đối tượng nào."
+    },
+    {
+     "id": "root_data-p172-B01",
+     "page": 172,
+     "text": "• Phương thức lớp hay còn gọi là phương thức static k hông được gắn với một đối tượng cụ thể nào và không phụ thuộc đối tượng nào, nó chỉ được gắn với lớp • Nên gọi phương thức static từ tên lớp. • Phương thức static có thể được gọi mà không cần có đối tượng nào của lớp đó đang ở trong heap. • Do không được gắn với một đối tượng nào, phương thứ c static không thể truy nhập biến thực thể hay các phương thức thực thể. • Biến lớp hay còn gọi là biến static là biến dùng chung cho tất cả các đối tượng của lớp. Chỉ có duy nhất một bản cho cả lớp, chứ không phải mỗi đối tượng có một bản. • Phương thức static có thể truy nhập biến static. • Biến final chỉ được gán trị một lần và không thể bị thay đổi. • Phương thức final không thể bị đè. • Lớp final không thể có lớp con."
+    }
+   ],
+   "context_chars": 2307,
+   "searches": 1,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "phương thức static không thể truy cập biến thực thể và this",
+     "filter": {
+      "chapter": 10
+     },
+     "results": [
+      {
+       "id": "root_data-p169-B01",
+       "page": 169,
+       "score": 0.90475,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p168-B00",
+       "page": 168,
+       "score": 0.8974,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p172-B01",
+       "page": 172,
+       "score": 0.89262,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p169-B01",
+      "root_data-p168-B00",
+      "root_data-p172-B01"
+     ],
+     "seconds": 0.082
+    },
+    {
+     "event": "search_limit",
+     "tool": "dense",
+     "query": "static method cannot access instance variables or this keyword Java"
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 3163,
+    "completion_tokens": 724,
+    "cost": 0.0006783000000000001,
+    "llm_calls": 2
+   },
+   "seconds": 5.7,
+   "error": null
+  },
+  {
+   "query_id": "T02",
+   "split": "test",
+   "answerable": true,
+   "config": "base",
+   "question": "Mẫu thiết kế Singleton ngăn việc tạo thực thể từ bên ngoài lớp bằng cách nào?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "Mẫu Singleton ngăn việc tạo thực thể từ bên ngoài lớp bằng cách đặt phương thức khởi tạo (constructor) ở chế độ `private`, nhờ đó mã bên ngoài lớp không thể gọi `new` để tạo đối tượng [root_data-p170-B01]. Lớp tự tạo thực thể duy nhất và giữ tham chiếu tới nó qua một biến lớp `private` [root_data-p170-B01].\n\nĐể lấy thực thể, lớp cung cấp một phương thức lớp `public` (thường là `getInstance()`), và đây là cổng duy nhất để truy cập đối tượng Singleton. Phương thức này đảm bảo chỉ có một thực thể được tạo [root_data-p170-B02]. Ví dụ gọi từ bên ngoài: `Singleton.getInstance().doSomething();` [root_data-p170-B02].",
+   "citations": [
+    "root_data-p170-B01",
+    "root_data-p170-B02"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p170-B01",
+    "root_data-p170-B02",
+    "root_data-p076-B01"
+   ],
+   "context": [
+    {
+     "id": "root_data-p170-B01",
+     "page": 170,
+     "text": "10.5. MẪU THIẾT KẾ SINGLETON Một ứng dụng của các thành viên lớp là mẫu thiết kế Singleton. Mẫu này giải quyết bài toán thiết kế đảm bảo rằng một lớp chỉ có tối đa một thực thể, chẳng hạn như trong một hệ thống mà chỉ nên có một đối tượng quản lý cửa sổ ứng dụng, một hệ thống file, hay chỉ một đối tượng quản lý hàng đ ợi máy in (printer spooler). Các lớp singleton thường được dùng cho việc quản lý tập trung tài nguyên và cung cấp một điểm truy nhập toàn cục duy nhất đến thực thể duy nhất của chúng. Mẫu Singleton bao gồm một lớp tự chịu trách nhiệm t ạo thực thể. Phương thức khởi tạo được đặt chế độ private để ngăn cản việc tạ o thực thể từ bên ngoài lớp. Một biến lớp private giữ tham chiếu tới thực thể duy nh ất."
+    },
+    {
+     "id": "root_data-p170-B02",
+     "page": 170,
+     "text": "Lớp cung cấp điểm truy nhập toàn cục tới thực thể này qua một phương thức lớp p ublic trả về tham chiếu tới thực thể đó. Hình 10.5 mô tả chi tiết về mẫu Singleton. Đ ể ý rằng do hàm khởi tạo không thể được truy cập từ bên ngoài nên phương thức lớp getInstance() là cổng duy nhất cho phép lấy tham chiếu tới đối tượng Singleton. Phương thức này đảm bảo rằng chỉ có duy nhất một thực thể Singleton được tạo. Từ bên ngoài lớp Singleton, mỗi khi muốn dùng đến thực thể Singleton này, ta chỉ cần thực hiện lời gọi có dạng như sau: Singleton.getInstance().doSomething(); Người đọc có thể tìm hiểu thêm về mẫu thiết kế này và các ứng dụng của nó tại các tài liệu sau:"
+    },
+    {
+     "id": "root_data-p076-B01",
+     "page": 76,
+     "text": "} } Nửa công việc còn lại, cần làm gì để che giấu dữ li ệu, không cho phép các đoạn mã khác dùng tham chiếu trực tiếp sửa biến thực thể ? Làm cách nào để che gi ấu dữ liệu? Quy tắc khởi đầu cho việc thực hiện đóng gói là: đánh dấu các biến thực thể với từ khóa private và cung cấp các phương thức public set và get cho biến đó. Các từ khóa private và public quy định quyền truy nhập c ủa biến thực thể, phương thức, hay lớp được khai báo với từ khóa đó. (Ta đã quen v ới từ khóa public, nó đi kèm khai báo của tất cả các phương thức main.) Từ khóa private có nghĩa là riêng tư, cá nhân. Trong một lớp, biến thực thể / phương thức nà o được khai báo với từ khóa private thì chỉ có mã chương trình ở bên trong lớp đ ó mới có quyền truy nhập biến / phương thức đó."
+    }
+   ],
+   "context_chars": 2355,
+   "searches": 1,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "mẫu thiết kế Singleton ngăn tạo thực thể từ bên ngoài lớp constructor private",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p170-B01",
+       "page": 170,
+       "score": 0.90502,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p170-B02",
+       "page": 170,
+       "score": 0.85952,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p076-B01",
+       "page": 76,
+       "score": 0.84282,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p170-B01",
+      "root_data-p170-B02",
+      "root_data-p076-B01"
+     ],
+     "seconds": 0.062
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 3136,
+    "completion_tokens": 408,
+    "cost": 0.0005176,
+    "llm_calls": 2
+   },
+   "seconds": 3.53,
+   "error": null
+  },
+  {
+   "query_id": "T03",
+   "split": "test",
+   "answerable": true,
+   "config": "base",
+   "question": "Biến static final và biến thực thể final khác nhau thế nào?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "**Biến `static final`** là hằng của lớp: có một bản duy nhất dùng chung cho mọi đối tượng [root_data-p171-B01][root_data-p172-B01]. Ví dụ trong giáo trình là `IS_FEMALE` (giống cái), có giá trị `true` cho tất cả đối tượng kiểu `Cow` [root_data-p171-B01].\n\n**Biến thực thể `final`** là hằng của đối tượng: mỗi đối tượng có giá trị riêng của nó [root_data-p171-B01]. Ví dụ là `color` của con bò: mỗi con có màu riêng, nhưng màu không đổi sau khi đã có [root_data-p171-B01].\n\nCả hai đều không thể bị thay đổi giá trị. Biến final chỉ được gán giá trị một lần [root_data-p172-B01].",
+   "citations": [
+    "root_data-p171-B01",
+    "root_data-p172-B01"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p171-B01",
+    "root_data-p172-B01"
+   ],
+   "context": [
+    {
+     "id": "root_data-p171-B01",
+     "page": 171,
+     "text": "10.6. THÀNH VIÊN BẤT BIẾN – final Trong ngôn ngữ Java, từ khóa final mang nghĩa \"không thể thay đổi\". Ta có thể dùng từ khóa này để quy định về tính chất không thể thay đổi cho biến, phương thức, và cả lớp: 1. Một biến final là biến không thể sửa giá trị . Nói cách khác, biến final là hằng. Ta có biến static final là hằng của lớp, biến thực thể final là hằng của đối tượng. Biến địa phương, tham số cũng có thể được quy định là final. Trong ví dụ sau đây, 'cow' có nghĩa là 'bò cái' nên IS_FEMALE (là g iống cái) là hằng mang giá trị true chung cho tất cả các đối tượng kiểu Cow, từng con bò không đổi màu nên color là một hằng cho từng đối tượng Cow. 2. Một phương thức final là phương thức mà lớp con không thể cài đè ."
+    },
+    {
+     "id": "root_data-p172-B01",
+     "page": 172,
+     "text": "• Phương thức lớp hay còn gọi là phương thức static k hông được gắn với một đối tượng cụ thể nào và không phụ thuộc đối tượng nào, nó chỉ được gắn với lớp • Nên gọi phương thức static từ tên lớp. • Phương thức static có thể được gọi mà không cần có đối tượng nào của lớp đó đang ở trong heap. • Do không được gắn với một đối tượng nào, phương thứ c static không thể truy nhập biến thực thể hay các phương thức thực thể. • Biến lớp hay còn gọi là biến static là biến dùng chung cho tất cả các đối tượng của lớp. Chỉ có duy nhất một bản cho cả lớp, chứ không phải mỗi đối tượng có một bản. • Phương thức static có thể truy nhập biến static. • Biến final chỉ được gán trị một lần và không thể bị thay đổi. • Phương thức final không thể bị đè. • Lớp final không thể có lớp con."
+    }
+   ],
+   "context_chars": 1638,
+   "searches": 1,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "biến static final và biến thực thể final khác nhau",
+     "filter": {
+      "chapter": 10
+     },
+     "results": [
+      {
+       "id": "root_data-p171-B01",
+       "page": 171,
+       "score": 0.90666,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p172-B01",
+       "page": 172,
+       "score": 0.89896,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p168-B00",
+       "page": 168,
+       "score": 0.8898,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p171-B01",
+      "root_data-p172-B01"
+     ],
+     "seconds": 0.058
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 2636,
+    "completion_tokens": 492,
+    "cost": 0.0005096,
+    "llm_calls": 2
+   },
+   "seconds": 4.04,
+   "error": null
+  },
+  {
+   "query_id": "T04",
+   "split": "test",
+   "answerable": true,
+   "config": "base",
+   "question": "Khối finally trong try/catch dùng để làm gì?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "Khối `finally` là nơi đặt các đoạn mã **phải được thực thi bất kể có ngoại lệ xảy ra hay không**. Ví dụ trong giáo trình: dù luộc trứng thành công hay gặp sự cố, ta vẫn phải tắt lò, nên lệnh tắt lò nên nằm trong `finally` [root_data-p182-B00]. Giáo trình cũng nêu rõ một khối `finally` sẽ chạy dù ngoại lệ có được ném hay không [root_data-p193-B01].",
+   "citations": [
+    "root_data-p182-B00",
+    "root_data-p193-B01"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p182-B00",
+    "root_data-p193-B01",
+    "root_data-p190-B00"
+   ],
+   "context": [
+    {
+     "id": "root_data-p182-B00",
+     "page": 182,
+     "text": "11.2.3. Khối finally – những việc dù thế nào cũng phải làm Phần try và phần catch trong khối try/catch là nhữn g phần bắt buộc phải có. Ngoài ra, ta còn có thể lắp một phần có tên finally vào làm phần cuối cùng của khối try/catch. Một khối finally là nơi ta đặt các đoạn mã phải đượ c thực thi bất kể ngoại lệ có xảy ra hay không. Hình 11.8: Điều khi ển ch ươ ng trình tại kh ối try/catch. Ta lấy một ví dụ minh họa. Giả sử ta cần luộc trứng trong lò vi sóng. Nếu có sự cố xảy ra, chẳng hạn trứng bị nổ, ta phải tắt lò. N ếu trứng luộc thành công, ta cũng tắt lò. Tóm lại, dù chuyện gì xảy ra thì ta cũng đều phải tắt lò. Nếu không dùng khối finally, ta phải gọi turnOvenOff () ở cả khối try lẫn khối catch, nhưng kết quả là vẫn không thực hiện được nhiệm vụ đóng file nếu kết cục lại"
+    },
+    {
+     "id": "root_data-p193-B01",
+     "page": 193,
+     "text": "d) Chỉ có thể bắt được các loại ngoại lệ mà trình biên dịch kiểm tra. e) Nếu ta viết một khối try/catch, có thể viết khối finally, có thể không. f) Nếu ta viết một khối try, ta có thể viết kèm một khố i catch hoặc một khối try tương ứng, hoặc cả hai. g) Phương thức main() trong chương trình phải xử lý tấ t cả các ngoại kệ chưa được xử lí rơi xuống cho nó. h) Một khối try có thể kèm theo nhiều khối catch. i) Một phương thức chỉ được ném một loại ngoại lệ, j) Một khối finally sẽ chạy bất kể ngoại lệ có được ném hay không. k) Một khối finally có thể tồn tại mà không cần đi kèm khối try nào l) Thư tự của các khối catch không quan trọng. m) Một phương thức có một khối try/catch vẫn có thể khai báo cả phần throws. n) Các ngoại lệ run-time bắt buộc phải được bắt để xử lý hoặc được khai báo ném."
+    },
+    {
+     "id": "root_data-p190-B00",
+     "page": 190,
+     "text": "Mục đích sử dụng của các khối try/catch là để xử lí các tình huống bất thường chứ không phải để khắc phục lỗi trong mã của lập trình viên . Hãy dùng các khối catch để cố gắng khắc phục sự cố của các tình huống mà ta không thể đảm bảo sẽ thành công. Ít nhất, ta cũng có thể in ra một thông điệp cho người dùng và thông tin về dấu vết của ngoại lệ trong ngăn xếp các lời gọi phươ ng thức (stack trace) để ai đó có thể hiểu được chuyện gì đã xảy ra."
+    }
+   ],
+   "context_chars": 2241,
+   "searches": 1,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "khối finally trong try catch Java dùng để làm gì",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p182-B00",
+       "page": 182,
+       "score": 0.90196,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p193-B01",
+       "page": 193,
+       "score": 0.89624,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p190-B00",
+       "page": 190,
+       "score": 0.89274,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p182-B00",
+      "root_data-p193-B01",
+      "root_data-p190-B00"
+     ],
+     "seconds": 0.065
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 3005,
+    "completion_tokens": 480,
+    "cost": 0.0005405,
+    "llm_calls": 2
+   },
+   "seconds": 4.2,
+   "error": null
+  },
+  {
+   "query_id": "T05",
+   "split": "test",
+   "answerable": true,
+   "config": "base",
+   "question": "Khi có nhiều khối catch, khối bắt ngoại lệ tổng quát và khối bắt ngoại lệ chuyên biệt phải sắp xếp theo thứ tự nào?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "Khối catch chuyên biệt (lớp con) phải đặt trước, còn khối catch tổng quát (lớp cha) phải đặt sau. Lý do: các khối catch được kiểm tra lần lượt từ trên xuống, khối đầu tiên bắt được ngoại lệ sẽ được thực thi; nếu khối cha đứng trước thì nó sẽ bắt hết và khối con không bao giờ được chạy. Trình biên dịch sẽ báo lỗi nếu không tuân theo quy tắc này [root_data-p180-B00] [root_data-p184-B01]. Giáo trình cũng nêu bài tập minh họa rằng nếu bắt lớp cha trước lớp con, trình biên dịch sẽ sinh lỗi [root_data-p194-B00].",
+   "citations": [
+    "root_data-p180-B00",
+    "root_data-p184-B01",
+    "root_data-p194-B00"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p194-B00",
+    "root_data-p180-B00",
+    "root_data-p184-B01"
+   ],
+   "context": [
+    {
+     "id": "root_data-p194-B00",
+     "page": 194,
+     "text": "minh họa cho việc khối catch cho loại ExceptionA bắt các ngoại lệ thuộc loại ExceptionB và ExceptionC. 9. (Dùng lớp Exception khi bắt ngoại lệ ) Viết một chương trình minh họa việc bắt các ngoại lệ khác nhau bằng khối catch ( Exception exception ) Gợi ý: Đầu tiên, viết lớp ExceptionA là lớp con của Exception và ExceptionB là lớp con của ExceptionA. Trong chương trình, bạn hãy tạo khối try ném các ngoại lệ thuộc các kiểu ExceptionA, ExceptionB, NullPoint erException và IOException. Tất cả các ngoại lệ đó cần được bắt bởi các khối ca tch có khai báo bắt loại Exception. 10. (Thứ tự của các khối catch ) Viết một chương trình cho thấy thứ tự của các khố i catch là quan trọng. Nếu bạn cố bắt ngoại lệ lớp ch a trước khi bắt ngoại lệ lớp con, trình biên dịch sẽ sinh lỗi."
+    },
+    {
+     "id": "root_data-p180-B00",
+     "page": 180,
+     "text": "Hình 11.7: Kh ối try/catch có nhi ều kh ối catch. Khi một ngoại lệ xảy ra, trình biên dịch tìm một kh ối catch phù hợp trong các khối catch đi kèm. Trình tự tìm là lần lượt từ khối thứ nhất đến khối cuối cùng, khối catch đầu tiên bắt được ngoại lệ đó sẽ được thực thi."
+    },
+    {
+     "id": "root_data-p184-B01",
+     "page": 184,
+     "text": "Vậy các khối catch đó nên được để theo thứ tự nào? Nhớ lại rằng khi một ngoại lệ được ném ra từ bên trong khối try, theo thứ tự t ừ trên xuống dưới, khối catch nào bắt được ngoại lệ đó thì sẽ được chạy. Do đó, nếu c ái rổ to được thử hứng trước cái rổ nhỏ hơn, nghĩa là khối catch cho lớp cha được đặ t trước khối catch dành cho lớp con, thì cái rổ to sẽ hứng được ngay còn cái rổ nhỏ hơn sẽ không bao giờ đến lượt mình hứng được cái gì. Vì lí do đó, trình biên dịch yêu cầu khối catch dành cho lớp ngoại lệ tổng quát hơn bao giờ cũng phải đặt sau kh ối catch dành cho lớp ngoại lệ chuyên biệt hơn . Trình biên dịch sẽ báo lỗi nếu ta không tuân theo quy tắc này."
+    }
+   ],
+   "context_chars": 1916,
+   "searches": 1,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "nhiều khối catch thứ tự khối bắt ngoại lệ chuyên biệt và tổng quát",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p194-B00",
+       "page": 194,
+       "score": 0.90749,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p180-B00",
+       "page": 180,
+       "score": 0.90371,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p184-B01",
+       "page": 184,
+       "score": 0.90155,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p194-B00",
+      "root_data-p180-B00",
+      "root_data-p184-B01"
+     ],
+     "seconds": 0.062
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 3010,
+    "completion_tokens": 364,
+    "cost": 0.00048300000000000003,
+    "llm_calls": 2
+   },
+   "seconds": 3.32,
+   "error": null
+  },
+  {
+   "query_id": "T06",
+   "split": "test",
+   "answerable": true,
+   "config": "base",
+   "question": "Những ngoại lệ nào không bị trình biên dịch bắt buộc phải xử lý (unchecked)?",
+   "context_has_evidence": false,
+   "status": "answered",
+   "answer": "Các ngoại lệ không được kiểm tra (unchecked) là các loại **RuntimeException** (và các lớp con của nó). Trình biên dịch không bắt buộc phương thức xử lý chúng bằng khối try/catch hoặc khai báo throws [root_data-p192-B00]. Ví dụ như NullPointerException và ArrayIndexOutOfBoundsException là những ngoại lệ không bắt buộc xử lý [root_data-p189-B00].\n\nNgược lại, các ngoại lệ còn lại mà trình biên dịch quan tâm được gọi là ngoại lệ được kiểm tra (checked) [root_data-p192-B00].\n\nTài liệu tìm được không đề cập đến lớp Error, nên tôi không khẳng định gì về nó.",
+   "citations": [
+    "root_data-p192-B00",
+    "root_data-p189-B00"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p189-B00",
+    "root_data-p192-B00",
+    "root_data-p176-B00"
+   ],
+   "context": [
+    {
+     "id": "root_data-p189-B00",
+     "page": 189,
+     "text": "11.5. NGOẠI LỆ ĐƯỢC KIỂM TRA VÀ KHÔNG ĐƯỢC KIỂM TRA Nhớ lại các chương trình ví dụ có lỗi do không xử l ý ngoại lệ trong Hình 11.1 và Hình 11.3. Ví dụ thứ nhất biên dịch thành công còn ví dụ thứ hai có lỗi về ngoại lệ ngay khi biên dịch. Ngoài ra, có lẽ đến đây bạn đọc đã gặp những sự cố khi chạy chương trình như NullPointerException (dùng tham ch iếu null để truy nhập các biến thực thể hay phương thức thực thể), ArrayIndex OutOfBoundException (truy nhập mảng với chỉ số không hợp lệ). Ta đã không bị buộc phải bắt và xử lý các ngoại lệ đó. Tại sao lại có sự khác biệt này?"
+    },
+    {
+     "id": "root_data-p192-B00",
+     "page": 192,
+     "text": "Những điểm quan trọng: • Một phương thức có thể ném ngoại lệ khi gặp sự cố trong khi đang chạy • Một ngoại lệ là một đối tượng thuộc kiểu Exception hoặc lớp con của Exception. • Trình biên dịch không quan tâm đến các ngoại lệ kiể u RuntimeException. Các ngoại lệ kiểu RuntimeException không bắt buộc phải được phương thức xử lý bằng khối try/catch hay khai báo throws để né. • Tất cả các loại ngoại lệ mà trình biên dịch quan tâ m được gọi là các ngoại lệ được kiểm tra. Các ngoại lệ còn lại (các loại RuntimeExc eption) được gọi là ngoại lệ không được kiểm tra. • Một phương thức ném một ngoại lệ bằng lệnh throw, t iếp theo là một đối tượng ngoại lệ mới. • Các phương thức có thể ném một ngoại lệ loại được k iểm tra phải khai báo ngoại lệ đó với dạng throws Exception"
+    },
+    {
+     "id": "root_data-p176-B00",
+     "page": 176,
+     "text": "thông báo lỗi cho lệnh new PrintWriter với nội dung rằng ngoại lệ FileNotFoundException chưa được xử lý và nó phải đư ợc bắt hoặc được tuyên bố ném tiếp. import java.io.PrintWriter; import java.io.File; public class FileWriter { public static void write(String fileName, String s) { File file = new File(fileName); PrintWriter out = new PrintWriter(file); out.println(s); out.close(); } } import các lớp cần dùng từ thư viện của Java % javac FileWriter.java FileWriter.java:7: unreported exception java.io.FileNotFoundException; must be caught or declared to be thrown PrintWriter out = new PrintWriter(file); ^ 1 error mở file và chuẩn bị chi việc ghi file Hình 11.3: L ỗi biên d ịch do ngo ại l ệ không được x ử lý."
+    }
+   ],
+   "context_chars": 2277,
+   "searches": 1,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "ngoại lệ unchecked không bắt buộc xử lý RuntimeException Error Java",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p189-B00",
+       "page": 189,
+       "score": 0.89905,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p192-B00",
+       "page": 192,
+       "score": 0.89784,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p176-B00",
+       "page": 176,
+       "score": 0.89277,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p189-B00",
+      "root_data-p192-B00",
+      "root_data-p176-B00"
+     ],
+     "seconds": 0.067
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 3058,
+    "completion_tokens": 520,
+    "cost": 0.0005658,
+    "llm_calls": 2
+   },
+   "seconds": 3.9,
+   "error": null
+  },
+  {
+   "query_id": "T07",
+   "split": "test",
+   "answerable": true,
+   "config": "base",
+   "question": "Khi một đối tượng bị chuỗi hóa (serialize), các đối tượng mà nó tham chiếu tới có được lưu theo không?",
+   "context_has_evidence": false,
+   "status": "answered",
+   "answer": "Có. Khi lưu một đối tượng, toàn bộ các đối tượng trong đồ thị tham chiếu của nó cũng được lưu [root_data-p201-B00].\n\nVì vậy, mọi lớp trong đồ thị đó phải cài đặt `Serializable`, nếu không chương trình sẽ gặp ngoại lệ khi chạy [root_data-p201-B00][root_data-p200-B01]. Nếu một biến thực thể tham chiếu tới lớp không chuỗi hóa được, và bạn không thể sửa lớp đó (ví dụ do người khác viết), có thể khai báo biến ấy với từ khóa `transient` để bỏ qua nó khi chuỗi hóa [root_data-p201-B00].",
+   "citations": [
+    "root_data-p201-B00",
+    "root_data-p200-B01"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p201-B00",
+    "root_data-p059-B03",
+    "root_data-p200-B01"
+   ],
+   "context": [
+    {
+     "id": "root_data-p201-B00",
+     "page": 201,
+     "text": "Như đã nói ở trên, khi lưu một đối tượng, toàn bộ c ác đối tượng trong đồ thị tham chiếu của nó cũng được lưu. Do đó, tất cả các lớp đó đều phải thuộc loại Serializable. Như trong ví dụ Hình 12.2 thì các lớp ContactList, Contact, PhoneNumber, String đều phải thuộc loại chuỗi hóa đ ược nếu không muốn xảy ra ngoại lệ NonSerializableException khi chương trình chạy. Ta đi đến tình huống khi trong một đối tượng cần lư u lại có một biến thực thể là tham chiếu tới đối tượng thuộc lớp không chuỗi hóa được. Và ta không thể sửa cài đặt lớp để cho nó chuỗi hóa được, chẳng hạn khi lớp đó do người khác viết. Giải pháp là khai báo biến thực thể đó với từ khóa transi ent. Từ khóa này có tác dụng tuyên bố rằng \"hãy bỏ qua biến này khi chuỗi hóa\"."
+    },
+    {
+     "id": "root_data-p059-B03",
+     "page": 59,
+     "text": "4.2. THAM CHIẾU ĐỐI TƯỢNG VÀ ĐỐI TƯỢNG Biến kiểu cơ bản chỉ lưu các giá trị cơ bản. Vậy còn các đối tượng thì sao? Thực ra, trong Java không có khái niệm biến đối tượng, mà chỉ có biến tham chiếu đối tượng. Một biến tham chiếu đối tượng lưu trữ c ác bit đại diện cho một cách truy nhập tới một đối tượng. Biến tham chiếu k hông lưu trữ chính đối tượng đó. Có thể nói rằng nó lưu cái gì đó giống như một con trỏ, hay địa chỉ của đối tượng trong bộ nhớ máy tính. Ta không biết chính xác giá trị đó là cái gì. Chỉ cần biết rằng giá trị đó đại diện cho một và chỉ một đối tượ ng, và rằng máy ảo Java biết cách dùng tham chiếu đó để truy nhập đối tượng."
+    },
+    {
+     "id": "root_data-p200-B01",
+     "page": 200,
+     "text": "Serializable là một interface thuộc loại dùng để đá nh dấu (dạng marker hoặc tag). Các interface loại này không có phương thức nào để cài. Mục đích duy nhất của Serializable là để tuyên bố rằng lớp cài nó có thể chuỗi hóa được. Nói cách khác là có thể dùng cơ chế chuỗi hóa để lưu các đối tượng thuộ c loại đó. Nếu một lớp chuỗi hóa được thì tất cả các lớp con cháu của nó đều tự động chuỗi hóa được mà không cần phải khai báo implements Serializable. (Ta còn nhớ ý nghĩa của quan hệ IS-A.) Nếu một lớp không thuộc loại chuỗi hóa được, chương trình nào gọi phương thức writeObject cho đối tượng thuộc lớp đó có thể biên dịch không lỗi nhưng khi chạy đến lệnh đó sẽ gặp ngoại lệ NonSerializableException."
+    }
+   ],
+   "context_chars": 2303,
+   "searches": 1,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "serialization đối tượng tham chiếu tới có được lưu theo không Java",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p201-B00",
+       "page": 201,
+       "score": 0.89962,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p059-B03",
+       "page": 59,
+       "score": 0.89708,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p200-B01",
+       "page": 200,
+       "score": 0.88405,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p201-B00",
+      "root_data-p059-B03",
+      "root_data-p200-B01"
+     ],
+     "seconds": 0.064
+    },
+    {
+     "event": "search_limit",
+     "tool": "dense",
+     "query": "Serializable object graph tham chiếu đối tượng con được ghi kèm"
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 3312,
+    "completion_tokens": 649,
+    "cost": 0.0006557,
+    "llm_calls": 2
+   },
+   "seconds": 4.47,
+   "error": null
+  },
+  {
+   "query_id": "T08",
+   "split": "test",
+   "answerable": true,
+   "config": "base",
+   "question": "Iterator là gì và dùng để làm gì với collection?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "**Iterator** là một đối tượng dùng để duyệt một collection. Các loại collection khác nhau có cách cài đặt iterator khác nhau, nhưng mọi iterator đều được sử dụng theo cùng một cách, nên một thuật toán dùng iterator có thể áp dụng cho mọi kiểu collection [root_data-p222-B02].\n\n**Cách dùng:**\n- Gọi `coll.iterator()` để lấy một iterator cho collection `coll`. Iterator đi từ đầu collection và di chuyển từ phần tử này sang phần tử khác cho đến hết. Có thể hình dung nó như một dạng tổng quát hóa của con trỏ [root_data-p222-B03].\n- Nếu collection thuộc kiểu `Collection<T>` cụ thể, thì `coll.iterator()` trả về `Iterator<T>` với cùng kiểu T đó [root_data-p222-B03].\n- Iterator thường dùng để áp dụng cùng một thao tác cho mọi phần tử của collection. Trong nhiều trường hợp, có thể dùng vòng lặp for-each thay cho iterator [root_data-p223-B01].",
+   "citations": [
+    "root_data-p222-B02",
+    "root_data-p222-B03",
+    "root_data-p223-B01"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p223-B01",
+    "root_data-p222-B03",
+    "root_data-p222-B02"
+   ],
+   "context": [
+    {
+     "id": "root_data-p223-B01",
+     "page": 223,
+     "text": "Lưu ý rằng khi Collection<T>, Iterator<T>, hay bất kì kiểu có tham số nào khác, được dùng trong mã thực sự, chúng luôn được dùng vớ i các kiểu dữ liệu thực sự chẳng hạn như String, Integer hay Cow thay cho vị t rí của tham số kiểu T. Một iterator kiểu Iterator<String> được dùng để duyệt q ua một collection gồm các String; một iterator kiểu Iterator<Cow> được dùng để duyệt qua một collection gồm các đối tượng Cow, v.v.. Một iteration thường được dùng để áp dụng cùng một thao tác cho tất cả các phần tử của một collection. Trong nhiều trường hợp, có thể tránh dùng iterator cho mục đích đó bằng cách sử dụng vòng lặp for-each. Vớ i coll thuộc loại Collection<T>, vòng for-each có dạng như sau:"
+    },
+    {
+     "id": "root_data-p222-B03",
+     "page": 222,
+     "text": "Collection<T> quy định một phương thức trả về một it erator cho một collection bất kì. Nếu coll là một collection, coll.iterator() trả về một iterator có thể dùng để duyệt collection đó. Ta có thể coi iterator là một dạng tổng quát hóa của con trỏ, nó xuất phát từ điểm đầu của collection và có thể di c huyển từ phần tử này sang phần tử khác cho đến khi đi hết collection. Iterator đượ c định nghĩa trong interface có tham số kiểu Iterator<T>. Nếu coll cài interface Co llection<T> với kiểu T cụ thể nào đó, thì coll.iterator() trả về một iterator cài inte rface Iterator<T> với cùng kiểu T đó. Iterator<T> quy định ba phương thức:"
+    },
+    {
+     "id": "root_data-p222-B02",
+     "page": 222,
+     "text": "Các lớp collection có thể được cài bằng kiểu mảng, danh sách liên kết, hay một cấu trúc dữ liệu nào đó khác. Mỗi loại sử dụng nhữn g cơ chế duyệt khác nhau. Ta làm cách nào để có được một phương thức tổng quát c hạy được cho các collection được lưu trữ theo các kiểu khác nhau? Giải pháp ở đ ây là các iterator. Một iterator là một đối tượng dùng để duyệt một collection. Các loạ i collection khác nhau có iterator được cài theo các cách khác nhau, nhưng tấ t cả các iterator đều được sử dụng theo cùng một cách. Một thuật toán dùng iterat or để duyệt một collection là thuật toán tổng quát, vì nó có thể dùng cho kiểu co llection bất kì. Đối với người mới làm quen với lập trình tổng quát, iterator có vẻ khá kì quặc, nhưng nó thực ra là một giải pháp đẹp cho một vấn đề rắc rối."
+    }
+   ],
+   "context_chars": 2321,
+   "searches": 1,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "Iterator là gì và dùng để làm gì với collection trong Java",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p223-B01",
+       "page": 223,
+       "score": 0.90617,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p222-B03",
+       "page": 222,
+       "score": 0.90312,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p222-B02",
+       "page": 222,
+       "score": 0.90124,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p223-B01",
+      "root_data-p222-B03",
+      "root_data-p222-B02"
+     ],
+     "seconds": 0.064
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 2965,
+    "completion_tokens": 543,
+    "cost": 0.0005679999999999999,
+    "llm_calls": 2
+   },
+   "seconds": 4.16,
+   "error": null
+  },
+  {
+   "query_id": "T09",
+   "split": "test",
+   "answerable": true,
+   "config": "base",
+   "question": "Vì sao toán tử == không dùng được để so sánh nội dung hai đối tượng trong collection?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "Toán tử `==` không so sánh được nội dung hai đối tượng vì nó **chỉ kiểm tra hai đối tượng có nằm cùng một vị trí trong bộ nhớ hay không**. Trong khi đó, các phương thức như `contains(object)` và `remove(object)` của Collection tìm phần tử có giá trị bằng đối tượng đối số, tức là hai đối tượng được coi là bằng nhau khi chúng biểu diễn cùng một giá trị. Ví dụ, hai đối tượng `Date` bằng nhau khi biểu diễn cùng một thời điểm [root_data-p224-B02].\n\nVì vậy, để collection so sánh đúng nội dung, lớp của đối tượng cần định nghĩa cách so sánh riêng. Tương tự, khi dùng `TreeSet` hoặc `Collections.sort()` với lớp do lập trình viên tự viết, các phần tử phải cung cấp khả năng so sánh. Có thể làm điều này bằng cách cài đặt interface `Comparable` cho lớp, hoặc truyền một `Comparator` cho collection [root_data-p227-B00], [root_data-p228-B00].\n\nLưu ý: lần tìm kiếm thứ hai (về cách ghi đè `equals` và `hashCode`) không trả về kết quả do đã hết số lượt tìm kiếm, nên câu trả lời trên chỉ dựa trên các đoạn tìm được ở lần đầu. Tài liệu đã tìm được chưa nêu chi tiết cách viết phương thức `equals`.",
+   "citations": [
+    "root_data-p224-B02",
+    "root_data-p227-B00",
+    "root_data-p228-B00"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p224-B02",
+    "root_data-p227-B00",
+    "root_data-p228-B00"
+   ],
+   "context": [
+    {
+     "id": "root_data-p224-B02",
+     "page": 224,
+     "text": "Trong interface Collection có quy định một số phươn g thức để kiểm tra các đối tượng có bằng nhau hay không. Ví dụ, contain(object ) và remove(object) tìm trong collection một phần tử có giá trị bằng đối tượng đố i số. Tuy nhiên, phép so sánh bằng không phải vấn đề đơn giản. Phép so sánh bằng (==) không dùng được cho so sánh đối tượng do nó thực chất chỉ kiểm tra xem hai đối tượng có ở cùng một chỗ trong bộ nhớ hay không. Còn ở đây, ta coi hai đối t ượng là bằng nhau nếu chúng biểu diễn cùng một giá trị. Hai đối tượng kiểu Date được coi là bằng nhau nếu chúng biểu diễn cùng một thời điểm. Phép so sánh lớ n hơn, nhỏ hơn cũng cần thiết cho một số công việc như sắp xếp, chẳng hạn phương t hức tổng quát Collections.sort(list) trong Java API yêu cầu dữ liệ u phải cung cấp thao tác này."
+    },
+    {
+     "id": "root_data-p227-B00",
+     "page": 227,
+     "text": "Hình 13.9: L ỗi run-time khi s ử d ụng TreeSet cho Contact. Tương tự như tình huống so sánh bằng, TreeSet, hay Collections không thể tự biết cách so sánh các đối tượng thuộc các lớp mà lập trình viên tự xây dựng. Chương trình như trong Hình 13.9 biên dịch không có lỗi do add() không yêu cầu tham số kiểu Comparable, nhưng khi chạy thì gặp lỗi run-tim e đối với lệnh đầu tiên gọi đến phương thức đó. Tóm lại, các phần tử của cấu trúc danh bạ phải thuộ c lớp đối tượng có cung cấp phương tiện so sánh. Ta có thể chọn một trong hai cách sau để giải quyết vấn đề đó: 1. Các phần tử danh sách phải thuộc một lớp có cài int erface Comparable. Ta sửa lớp Contact để bổ sung phần in đậm trong Hình 13.10, ch ương trình trong Hình 13.9, sau đó sẽ chạy không có lỗi. Hình 13.10: Cài interface Comparable."
+    },
+    {
+     "id": "root_data-p228-B00",
+     "page": 228,
+     "text": "nó biết cách đối xử với các phần tử trong danh bạ (c Contact là đối số khi gọi hàm khởi tạo TreeSet). Hình 13.11: S ử d ụng Comparator. Cả hai cách trên đều áp dụng được cho phương thức s ort() của Collection cũng như các tiện ích tổng quát tương tự trong thư viện Java."
+    }
+   ],
+   "context_chars": 2069,
+   "searches": 1,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "toán tử == so sánh nội dung đối tượng trong collection Java",
+     "filter": {
+      "chapter": 13
+     },
+     "results": [
+      {
+       "id": "root_data-p224-B02",
+       "page": 224,
+       "score": 0.90296,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p227-B00",
+       "page": 227,
+       "score": 0.88442,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p228-B00",
+       "page": 228,
+       "score": 0.8765,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p224-B02",
+      "root_data-p227-B00",
+      "root_data-p228-B00"
+     ],
+     "seconds": 0.069
+    },
+    {
+     "event": "search_limit",
+     "tool": "dense",
+     "query": "phương thức equals và hashCode ghi đè để so sánh nội dung đối tượng"
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 3115,
+    "completion_tokens": 844,
+    "cost": 0.0007335,
+    "llm_calls": 2
+   },
+   "seconds": 5.42,
+   "error": null
+  },
+  {
+   "query_id": "U03",
+   "split": "test",
+   "answerable": false,
+   "config": "base",
+   "question": "Phương thức mặc định (default method) trong interface Java hoạt động ra sao?",
+   "context_has_evidence": null,
+   "status": "abstain",
+   "answer": "KHÔNG ĐỦ BẰNG CHỨNG: các đoạn tìm được chỉ nói rằng trong interface mọi phương thức đều trừu tượng để tránh nhập nhằng khi đa thừa kế [root_data-p137-B02], và không có đoạn nào mô tả cú pháp, cách hoạt động hay quy tắc giải quyết xung đột của phương thức mặc định (default method).",
+   "citations": [
+    "root_data-p137-B02"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p137-B02",
+    "root_data-p219-B02",
+    "root_data-p140-B00"
+   ],
+   "context": [
+    {
+     "id": "root_data-p137-B02",
+     "page": 137,
+     "text": "Cấu trúc interface này cho phép ta giải quyết bài t oán đa thừa kế, cho ta hưởng phần lớn các ích lợi mang tính đa hình mà đa thừa k ế mang lại, nhưng tránh cho ta các rắc rối nhập nhằng ngữ nghĩa như đã giới thiệu trong mục trước. Nguy cơ nhập nhằng ngữ nghĩa được tránh bằng cách r ất đơn giản: phương thức nào cũng phải trừu tượng! Theo đó, lớp con buộc phải cài đặt các phương thức. Nhờ vậy, khi chương trình chạy, máy ảo Java không ph ải bối rối lựa chọn giữa hai phiên bản mà một đối tượng được thừa kế. Một interface, do đó, giống như một lớp thuần túy t rừu tượng bao gồm toàn các phương thức trừu tượng và không có biến thực thể. N hưng về cú pháp thì interface có khác lớp trừu tượng một chút. Để định nghĩa một interface, ta dùng từ khóa interface thay vì class như đối với lớp:"
+    },
+    {
+     "id": "root_data-p219-B02",
+     "page": 219,
+     "text": "13.2. PHƯƠNG THỨC TỔNG QUÁT Phương thức tổng quát là phương thức mà tại khai bá o có sử dụng ít nhất một tham số kiểu. Ta có thể dùng tham số kiểu của phươn g thức theo những cách khác nhau: Dùng tham số kiểu được quy định sẵn tại khai báo lớ p. Chẳng hạn, tham số E của phương thức add(E o) trong lớp ArrayList<E> là tham số kiểu của lớp. Trong trường hợp này, kiểu được khai báo tại tham số phươ ng thức được thay thế bởi kiểu mà ta dùng khi tạo thực thể của lớp. Nếu ta tạo đối tượng ArrayList<String> thì add sẽ trở thành add(String o)."
+    },
+    {
+     "id": "root_data-p140-B00",
+     "page": 140,
+     "text": "• Một phương thức trừu tượng không có thân, khai báo phương thức đó kết thúc bằng dấu chấm phảy. • Một lớp cụ thể phải cài đặt hoặc được thừa kế cài đ ặt của tất cả các phương thức trừu tượng. • Mỗi lớp Java đều là lớp con trực tiếp hoặc gián tiếp của lớp Object. • Nếu ta dùng một tham chiếu để gọi phương thức, tham chiếu đó được khai báo thuộc lớp gì hay interface gì thì ta chỉ được gọi c ác phương thức có trong lớp đó hoặc interface đó, bất kể đối tượng mà tham chiếu đ ó đang chiếu tới là đối tượng thuộc lớp nào."
+    }
+   ],
+   "context_chars": 2062,
+   "searches": 1,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "phương thức mặc định default method trong interface Java",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p137-B02",
+       "page": 137,
+       "score": 0.86884,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p219-B02",
+       "page": 219,
+       "score": 0.86541,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p140-B00",
+       "page": 140,
+       "score": 0.86532,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p137-B02",
+      "root_data-p219-B02",
+      "root_data-p140-B00"
+     ],
+     "seconds": 0.062
+    },
+    {
+     "event": "forced_answer_nudge"
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 5081,
+    "completion_tokens": 437,
+    "cost": 0.0007266,
+    "llm_calls": 3
+   },
+   "seconds": 5.1,
+   "error": null
+  },
+  {
+   "query_id": "U04",
+   "split": "test",
+   "answerable": false,
+   "config": "base",
+   "question": "Dùng JUnit viết kiểm thử đơn vị cho một lớp Java như thế nào?",
+   "context_has_evidence": null,
+   "status": "abstain",
+   "answer": "KHÔNG ĐỦ BẰNG CHỨNG: các đoạn tìm được chỉ nói về cú pháp Java cơ bản và lớp/đối tượng, không có nội dung nào về JUnit (cách viết test, annotation, assertion, chạy kiểm thử), và lượt tìm kiếm đã hết nên chưa thể tìm thêm.",
+   "citations": [],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p045-B01",
+    "root_data-p048-B00"
+   ],
+   "context": [
+    {
+     "id": "root_data-p045-B01",
+     "page": 45,
+     "text": "d) Java cung cấp các phép toán phức hợp như +=, -= để viết tắt các lệnh gán. e) Luồng điều khiển quy định thứ tự các lệnh được thực thi trong chương trình. f) Phép toán đổi kiểu (double) trả về một giá trị nguy ên là bản sao của toán hạng của nó. g) Biến địa phương kiểu boolean nhận giá trị mặc định là false. h) Biến địa phương kiểu boolean nhận giá trị mặc định là true. 3. Cài đặt bộ công cụ JDK, dịch và chạy thử các chương trình ví dụ đã cho trong chương này. 4. Viết các lệnh Java để thực hiện từng nhiệm vụ sau đây: a) Dùng một lệnh để gán tổng của x và y cho z và tăng x thêm 1 sau phép tính trên. b) Kiểm tra xem giá trị biến count có lớn hơn 10 hay k hông, nếu có thì in ra dòng text \"Count is greater than 10\"."
+    },
+    {
+     "id": "root_data-p048-B00",
+     "page": 48,
+     "text": "Ch−¬ng 3. Líp vµ ®èi t−îng Trong chương này, chúng ta sẽ bàn sâu hơn về lớp và đối tượng. Các khái niệm hướng đối tượng khác sẽ lần lượt là trọng tâm của c ác chương sau. Chương này cũng nói về các vấn đề căn bản mà ta cần xem xét mỗi khi thiết kế một lớp. Như đã giới thiệu sơ lược trong chương trước, chươn g trình Java khi chạy là một tập hợp các đối tượng, chúng được yêu cầu thực hiện dịch vụ và yêu cầu dịch vụ của các đối tượng khác. Một đối tượng được tạo ra từ một lớp được gọi là một thực thể (instance ) của lớp đó. Ta có thể coi \"thực thể\" là một cách gọi khác của \"đối tượng\". Lớp là khuôn mẫu để từ đó tạo ra các thực thể. Vậy nên, khi thiết kế một lớp, ta cần nghĩ đến những đối tượng sẽ được tạo ra từ lớp đó. Có hai loại thông tin quan trọng về mỗi đối tượng:"
+    }
+   ],
+   "context_chars": 1638,
+   "searches": 1,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "Dùng JUnit viết kiểm thử đơn vị cho lớp Java",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p045-B01",
+       "page": 45,
+       "score": 0.8802,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p048-B00",
+       "page": 48,
+       "score": 0.86855,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p054-B00",
+       "page": 54,
+       "score": 0.86809,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p045-B01",
+      "root_data-p048-B00"
+     ],
+     "seconds": 0.064
+    },
+    {
+     "event": "search_limit",
+     "tool": "dense",
+     "query": "JUnit annotation @Test @BeforeEach assertEquals"
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 2916,
+    "completion_tokens": 471,
+    "cost": 0.0005271,
+    "llm_calls": 2
+   },
+   "seconds": 3.7,
+   "error": null
+  }
+ ]
+}

@@ -1,0 +1,438 @@
+[
+ {
+  "id": "D01",
+  "split": "dev",
+  "type": "direct",
+  "question": "Trừu tượng hóa (abstraction) trong lập trình hướng đối tượng là gì?",
+  "expected_answer": "Là cơ chế biểu diễn một tình huống phức tạp trong thế giới thực bằng một mô hình được đơn giản hóa.",
+  "answerable": true,
+  "filter": null,
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 15,
+    "evidence": "Trừu tượng hóa (abstraction) là một cơ chế cho phép biểu diễn một tình huống phức tạp trong thế giới thực bằng một mô hình được đơn giản hóa"
+   }
+  ]
+ },
+ {
+  "id": "D02",
+  "split": "dev",
+  "type": "paraphrase",
+  "question": "Vì sao Java phân phát mã trung gian bytecode thay vì để mỗi người tự biên dịch mã nguồn sang mã máy?",
+  "expected_answer": "Vì trình thông dịch bytecode đơn giản hơn trình biên dịch nên dễ viết cho máy mới, và nó còn đóng vai trò bộ đệm bảo vệ máy khi tải chương trình từ mạng.",
+  "answerable": true,
+  "filter": null,
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 22,
+    "evidence": "trình biên dịch là một chương trình phức tạp trong khi trình thông dịch chỉ là một chương trình nhỏ và đơn giản"
+   }
+  ]
+ },
+ {
+  "id": "D03",
+  "split": "dev",
+  "type": "direct",
+  "question": "Trình biên dịch JIT (just-in-time) làm nhiệm vụ gì khi chạy chương trình Java?",
+  "expected_answer": "Dịch Java bytecode thành mã máy ngay trong khi thực thi chương trình.",
+  "answerable": true,
+  "filter": null,
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 22,
+    "evidence": "Trình biên dịch JIT dịch Java bytecode thành mã máy"
+   }
+  ]
+ },
+ {
+  "id": "D04",
+  "split": "dev",
+  "type": "condition",
+  "question": "Nếu apples đang bằng 1 thì giá trị của biểu thức ++apples và apples++ khác nhau thế nào?",
+  "expected_answer": "++apples có giá trị 2 (tăng trước khi tính giá trị) còn apples++ có giá trị 1 (tăng sau khi tính giá trị); cả hai đều làm apples thành 2.",
+  "answerable": true,
+  "filter": null,
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 29,
+    "evidence": "++apples là biểu thức có giá trị bằng 2 (tăng apples trước tính giá trị), trong khi apples++ là biểu thức có giá trị bằng 1"
+   }
+  ]
+ },
+ {
+  "id": "D05",
+  "split": "dev",
+  "type": "filter",
+  "question": "Phép gán giữa hai biến tham chiếu có sao chép nội dung của đối tượng không?",
+  "expected_answer": "Không, phép gán chỉ sao chép chuỗi bit của tham chiếu nên hai biến cùng chiếu tới một đối tượng, không tạo bản sao.",
+  "answerable": true,
+  "filter": {
+   "chapter": 4
+  },
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 62,
+    "evidence": "Phép gán đối với các biến tham chiếu không tạo ra một bản sao của đối tượng."
+   }
+  ]
+ },
+ {
+  "id": "D06",
+  "split": "dev",
+  "type": "paraphrase",
+  "question": "Mảng trong Java là kiểu cơ bản hay là đối tượng, và biến mảng thực chất chứa gì?",
+  "expected_answer": "Mảng Java là một đối tượng; biến mảng là tham chiếu tới đối tượng mảng.",
+  "answerable": true,
+  "filter": null,
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 64,
+    "evidence": "Một mảng Java thực chất là một đối tượng. Một biến mảng là tham chiếu tới một đối tượng mảng."
+   }
+  ]
+ },
+ {
+  "id": "D07",
+  "split": "dev",
+  "type": "condition",
+  "question": "Khi phương thức sửa giá trị tham số kiểu int, đối số truyền vào ở nơi gọi có bị thay đổi không?",
+  "expected_answer": "Không, giá trị đối số được chép vào tham số nên đối số không chịu ảnh hưởng.",
+  "answerable": true,
+  "filter": null,
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 74,
+    "evidence": "Còn bản thân đối số đó không chịu ảnh hưởng gì của phương thức được gọi."
+   }
+  ]
+ },
+ {
+  "id": "D08",
+  "split": "dev",
+  "type": "paraphrase",
+  "question": "Ngoài việc bảo vệ dữ liệu, đóng gói và che giấu dữ liệu còn mang lại lợi ích gì?",
+  "expected_answer": "Cho phép thay đổi cấu trúc bên trong của lớp mà không ảnh hưởng mã bên ngoài đang dùng lớp đó.",
+  "answerable": true,
+  "filter": null,
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 77,
+    "evidence": "khả năng thay đổi cấu trúc bên trong của một lớp mà không làm ảnh hưởng đến những phần mã bên ngoài có sử dụng đến lớp đó"
+   }
+  ]
+ },
+ {
+  "id": "D09",
+  "split": "dev",
+  "type": "direct",
+  "question": "Khi gọi một phương thức từ tham chiếu đối tượng, máy ảo Java chọn phiên bản nào của phương thức trong cây thừa kế?",
+  "expected_answer": "Phiên bản thấp nhất trong cây thừa kế, tìm từ lớp của đối tượng lên dần các lớp cha.",
+  "answerable": true,
+  "filter": null,
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 108,
+    "evidence": "phiên bản thấp nhất sẽ được gọi"
+   }
+  ]
+ },
+ {
+  "id": "D10",
+  "split": "dev",
+  "type": "condition",
+  "question": "Vì sao không nên cho lớp Piano làm lớp con của DoorBell chỉ để dùng lại mã in?",
+  "expected_answer": "Vì đàn piano không phải là một loại chuông gọi cửa (không qua được kiểm tra IS-A); nên dùng quan hệ HAS-A với lớp Printer.",
+  "answerable": true,
+  "filter": null,
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 110,
+    "evidence": "Đàn piano không phải là một loại chuông gọi cửa."
+   }
+  ]
+ },
+ {
+  "id": "D11",
+  "split": "dev",
+  "type": "filter",
+  "question": "Chỉ thay đổi kiểu trả về giữa hai phương thức trùng tên có được coi là cài chồng (overload) hợp lệ không?",
+  "expected_answer": "Không, khác biệt duy nhất ở kiểu trả về là không đủ; phải sửa danh sách tham số.",
+  "answerable": true,
+  "filter": {
+   "chapter": 7
+  },
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 117,
+    "evidence": "Khác biệt duy nhất ở kiểu trả về là không đủ."
+   }
+  ]
+ },
+ {
+  "id": "D12",
+  "split": "dev",
+  "type": "condition",
+  "question": "Phương thức cài đè ở lớp con có được giảm quyền truy nhập so với phương thức của lớp cha không?",
+  "expected_answer": "Không, quyền truy nhập ở lớp con phải bằng hoặc rộng hơn lớp cha (ví dụ không thể cài đè phương thức public bằng private).",
+  "answerable": true,
+  "filter": null,
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 116,
+    "evidence": "Phương thức đè không được giảm quyền truy nhập so với phiên bản của lớp cha."
+   }
+  ]
+ },
+ {
+  "id": "D13",
+  "split": "dev",
+  "type": "direct",
+  "question": "Lớp cụ thể (concrete class) được định nghĩa như thế nào so với lớp trừu tượng?",
+  "expected_answer": "Một lớp không phải là lớp trừu tượng thì là lớp cụ thể.",
+  "answerable": true,
+  "filter": null,
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 126,
+    "evidence": "Một lớp không phải là lớp trừu tượng thì nó là lớp cụ thể"
+   }
+  ]
+ },
+ {
+  "id": "D14",
+  "split": "dev",
+  "type": "paraphrase",
+  "question": "Khi tạo một đối tượng Hippo, các hàm khởi tạo của lớp cha, lớp ông cho tới Object được gọi như thế nào?",
+  "expected_answer": "Hàm khởi tạo chạy sẽ lập tức gọi hàm khởi tạo của lớp cha, cứ thế lên tới Object (dây chuyền hàm khởi tạo).",
+  "answerable": true,
+  "filter": null,
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 150,
+    "evidence": "Khi một hàm khởi tạo chạy, nó lập tức gọi hàm khởi tạo của lớp cha."
+   }
+  ]
+ },
+ {
+  "id": "D15",
+  "split": "dev",
+  "type": "filter",
+  "question": "Sao chép nông (shallow copy) khác sao chép sâu (deep copy) của đối tượng ở điểm nào?",
+  "expected_answer": "Sao chép nông sao chép từng bit các biến thực thể nên tham chiếu bên trong vẫn trỏ tới cùng đối tượng thành phần; sao chép sâu tạo bản sao hoàn chỉnh cả các đối tượng thành phần.",
+  "answerable": true,
+  "filter": {
+   "chapter": 9
+  },
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 154,
+    "evidence": "Sao chép nông (shallow copy) là sao chép từng bit của các biến thực thể."
+   }
+  ]
+ },
+ {
+  "id": "T01",
+  "split": "test",
+  "type": "filter",
+  "question": "Vì sao phương thức static (phương thức lớp) không thể dùng biến thực thể hay tham chiếu this?",
+  "expected_answer": "Vì trình biên dịch không biết biến thực thể của đối tượng nào đang được nhắc tới; this cũng không dùng được trong phương thức lớp.",
+  "answerable": true,
+  "filter": {
+   "chapter": 10
+  },
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 168,
+    "evidence": "tham chiếu this cũng không thể sử dụng trong một phương thức lớp"
+   }
+  ]
+ },
+ {
+  "id": "T02",
+  "split": "test",
+  "type": "direct",
+  "question": "Mẫu thiết kế Singleton ngăn việc tạo thực thể từ bên ngoài lớp bằng cách nào?",
+  "expected_answer": "Đặt phương thức khởi tạo ở chế độ private và cung cấp phương thức lớp public getInstance() để lấy thực thể duy nhất.",
+  "answerable": true,
+  "filter": null,
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 170,
+    "evidence": "Phương thức khởi tạo được đặt chế độ private để ngăn cản việc tạo thực thể từ bên ngoài lớp."
+   }
+  ]
+ },
+ {
+  "id": "T03",
+  "split": "test",
+  "type": "filter",
+  "question": "Biến static final và biến thực thể final khác nhau thế nào?",
+  "expected_answer": "Biến static final là hằng của lớp, biến thực thể final là hằng của từng đối tượng.",
+  "answerable": true,
+  "filter": {
+   "chapter": 10
+  },
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 171,
+    "evidence": "Ta có biến static final là hằng của lớp, biến thực thể final là hằng của đối tượng."
+   }
+  ]
+ },
+ {
+  "id": "T04",
+  "split": "test",
+  "type": "direct",
+  "question": "Khối finally trong try/catch dùng để làm gì?",
+  "expected_answer": "Chứa mã phải được thực thi bất kể ngoại lệ có xảy ra hay không.",
+  "answerable": true,
+  "filter": null,
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 182,
+    "evidence": "Một khối finally là nơi ta đặt các đoạn mã phải được thực thi bất kể ngoại lệ có xảy ra hay không."
+   }
+  ]
+ },
+ {
+  "id": "T05",
+  "split": "test",
+  "type": "condition",
+  "question": "Khi có nhiều khối catch, khối bắt ngoại lệ tổng quát và khối bắt ngoại lệ chuyên biệt phải sắp xếp theo thứ tự nào?",
+  "expected_answer": "Khối catch cho lớp ngoại lệ tổng quát hơn phải đặt sau khối catch cho lớp chuyên biệt hơn, nếu không trình biên dịch báo lỗi.",
+  "answerable": true,
+  "filter": null,
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 184,
+    "evidence": "khối catch dành cho lớp ngoại lệ tổng quát hơn bao giờ cũng phải đặt sau khối catch dành cho lớp ngoại lệ chuyên biệt hơn"
+   }
+  ]
+ },
+ {
+  "id": "T06",
+  "split": "test",
+  "type": "paraphrase",
+  "question": "Những ngoại lệ nào không bị trình biên dịch bắt buộc phải xử lý (unchecked)?",
+  "expected_answer": "Các ngoại lệ thuộc lớp RuntimeException và các lớp con của nó, như NullPointerException, ArithmeticException.",
+  "answerable": true,
+  "filter": null,
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 189,
+    "evidence": "Loại không được kiểm tra bao gồm các đối tượng thuộc lớp RuntimeException và các lớp con của nó"
+   }
+  ]
+ },
+ {
+  "id": "T07",
+  "split": "test",
+  "type": "condition",
+  "question": "Khi một đối tượng bị chuỗi hóa (serialize), các đối tượng mà nó tham chiếu tới có được lưu theo không?",
+  "expected_answer": "Có, tất cả các đối tượng được chiếu tới từ các biến thực thể của nó cũng được chuỗi hóa.",
+  "answerable": true,
+  "filter": null,
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 199,
+    "evidence": "Khi một đối tượng được chuỗi hóa, tất cả các đối tượng được chiếu tới từ các biến thực thể của nó cũng được chuỗi hóa."
+   }
+  ]
+ },
+ {
+  "id": "T08",
+  "split": "test",
+  "type": "direct",
+  "question": "Iterator là gì và dùng để làm gì với collection?",
+  "expected_answer": "Iterator là một đối tượng dùng để duyệt một collection, mọi iterator được dùng theo cùng một cách.",
+  "answerable": true,
+  "filter": null,
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 222,
+    "evidence": "Một iterator là một đối tượng dùng để duyệt một collection."
+   }
+  ]
+ },
+ {
+  "id": "T09",
+  "split": "test",
+  "type": "filter",
+  "question": "Vì sao toán tử == không dùng được để so sánh nội dung hai đối tượng trong collection?",
+  "expected_answer": "Vì == chỉ kiểm tra hai đối tượng có ở cùng một chỗ trong bộ nhớ hay không, không so sánh giá trị biểu diễn.",
+  "answerable": true,
+  "filter": {
+   "chapter": 13
+  },
+  "gold": [
+   {
+    "source_id": "root_data",
+    "page": 224,
+    "evidence": "Phép so sánh bằng (==) không dùng được cho so sánh đối tượng"
+   }
+  ]
+ },
+ {
+  "id": "U01",
+  "split": "dev",
+  "question": "Lớp sealed trong Java dùng để làm gì và khai báo ra sao?",
+  "absence_reason": "Giáo trình không đề cập sealed class; quét toàn bộ 620 chunk không có 'sealed' hay 'lớp kín'.",
+  "type": "unanswerable",
+  "answerable": false,
+  "expected_behavior": "search_and_abstain",
+  "filter": null
+ },
+ {
+  "id": "U02",
+  "split": "dev",
+  "question": "Biểu thức lambda trong Java có cú pháp như thế nào?",
+  "absence_reason": "Không có 'lambda' ở bất kỳ chunk nào; giáo trình dừng ở Java trước khi có lambda.",
+  "type": "unanswerable",
+  "answerable": false,
+  "expected_behavior": "search_and_abstain",
+  "filter": null
+ },
+ {
+  "id": "U03",
+  "split": "test",
+  "question": "Phương thức mặc định (default method) trong interface Java hoạt động ra sao?",
+  "absence_reason": "Giáo trình nói về interface nhưng không có 'default method'; chữ 'default' chỉ xuất hiện trong lệnh switch.",
+  "type": "unanswerable",
+  "answerable": false,
+  "expected_behavior": "search_and_abstain",
+  "filter": null
+ },
+ {
+  "id": "U04",
+  "split": "test",
+  "question": "Dùng JUnit viết kiểm thử đơn vị cho một lớp Java như thế nào?",
+  "absence_reason": "Không có 'JUnit' hoặc 'kiểm thử đơn vị' trong toàn bộ corpus.",
+  "type": "unanswerable",
+  "answerable": false,
+  "expected_behavior": "search_and_abstain",
+  "filter": null
+ }
+]

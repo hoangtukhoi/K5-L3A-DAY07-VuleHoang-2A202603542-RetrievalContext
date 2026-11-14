@@ -1,0 +1,2133 @@
+{
+ "config": {
+  "name": "two_tools",
+  "tools": [
+   "dense",
+   "bm25"
+  ],
+  "top_k": 3,
+  "max_searches": 3,
+  "budget": 3600,
+  "neighbors": 0,
+  "model": "anthropic/claude-haiku-5.5",
+  "notes": {
+   "hypothesis": "model can pick keyword search for exact terms"
+  }
+ },
+ "traces": [
+  {
+   "query_id": "D01",
+   "split": "dev",
+   "answerable": true,
+   "config": "two_tools",
+   "question": "Trừu tượng hóa (abstraction) trong lập trình hướng đối tượng là gì?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "Trừu tượng hóa (abstraction) là khái niệm nền tảng trong lập trình hướng đối tượng. Nó là cơ chế biểu diễn một tình huống phức tạp của thế giới thực bằng một mô hình đơn giản hóa, tập trung vào các tính chất quan trọng và bỏ qua những thông tin không cần thiết [root_data-p015-B00].\n\nVí dụ: với một con mèo trong cửa hàng thú cảnh, ta quan tâm đến giống, màu lông, cân nặng, tuổi và tình trạng tiêm phòng dại; còn trong bệnh viện thú y thì cần các thông tin khác [root_data-p015-B00].\n\nTrong lập trình, trừu tượng hóa là mô hình hóa thế giới thực theo cách có thể cài đặt thành chương trình máy tính. Ví dụ, một chương trình quản lý sổ địa chỉ dùng các trừu tượng hóa như tên, địa chỉ, số điện thoại, cùng các thao tác như thêm mục mới hay sửa địa chỉ [root_data-p015-B02]. Trong OOP, bài toán được mô hình hóa thành các đối tượng với thuộc tính và phương thức cần thiết để thực hiện các dịch vụ mà chúng được yêu cầu [root_data-p015-B03].\n\nTrong Java, các cơ chế thể hiện trừu tượng hóa ở mức kiểu gồm lớp trừu tượng (cài đặt một phần) và interface (không có cài đặt) [root_data-p124-B00].",
+   "citations": [
+    "root_data-p015-B00",
+    "root_data-p015-B02",
+    "root_data-p015-B03",
+    "root_data-p124-B00"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p015-B00",
+    "root_data-p124-B00",
+    "root_data-p015-B02",
+    "root_data-p015-B03"
+   ],
+   "context": [
+    {
+     "id": "root_data-p015-B00",
+     "page": 15,
+     "text": "1.3. CÁC NGUYÊN TẮC TRỤ CỘT Lập trình hướng đối tượng có ba nguyên tắc trụ cột: đóng gói, thừa kế và đa hình, còn trừu tượng hóa là khái niệm nền tảng. Trừu tượng hóa (abstraction ) là một cơ chế cho phép biểu diễn một tình huống phức tạp trong thế giới thực bằng một mô hình được đơn giản hóa. Nó bao gồm việc tập trung vào các tính chất quan trọng của một đối tượng khi phải làm việc với lượng lớn thông tin. Ví dụ, đối với một con mèo tron g ngữ cảnh một cửa hàng bán thú cảnh, ta có thể tập trung vào giống mèo, màu lô ng, cân nặng, tuổi, đã tiêm phòng dại hay chưa, và bỏ qua các thông tin khác như dung tích phổi, nồng độ đường trong máu, huyết áp, còn đối với một con mèo t rong ngữ cảnh bệnh viện thú y thì lại là một chuyện khác."
+    },
+    {
+     "id": "root_data-p124-B00",
+     "page": 124,
+     "text": "Ch−¬ng 8. Líp trõu t−îng vµ interface Thừa kế mới chỉ là khởi đầu. Để khai thác cơ chế đa hình, các ngôn ngữ lập trình hướng đối tượng cung cấp các cơ chế kiểu trừu tượng (abstract type ). Các kiểu trừu tượng có cài đặt không đầy đủ hoặc không có cài đặt . Nhiệm vụ chính của chúng là giữ vai trò kiểu tổng quát hơn của một số các kiểu k hác. Kiểu trừu tượng không hề có cài đặt là các interface (không phải khái niệm g iao diện đồ họa người dùng GUI). Kiểu trừu tượng có cài đặt một phần là các lớp trừu tượng. Chúng mang lại sự linh hoạt và khả năng mở rộng cho thiết kế hướng đối tượng. Ví dụ cuối chương trước về lớp Vet có thể hoạt động với loại Animal bất kì đã c hạm vào bề mặt của vấn đề. Ta sẽ bàn về các kiểu trừu tượng trong chương này."
+    },
+    {
+     "id": "root_data-p015-B02",
+     "page": 15,
+     "text": "Trừu tượng hóa là một trong những công cụ cơ bản củ a tất cả các phương pháp lập trình, không chỉ lập trình hướng đối tượng. Khi viết một chương trình giải một bài toán của thế giới thực, trừu tượng hóa là một c ách để mô hình hóa bài toán đó. Ví dụ, khi ta viết một chương trình quản lý sổ địa c hỉ, ta sẽ dùng các trừu tượng hóa như tên, địa chỉ, số điện thoại, thứ tự bảng chữ cá i, và các khái niệm liên quan tới một sổ địa chỉ. Ta sẽ định nghĩa các thao tác để xử lý dữ liệu chẳng hạn như thêm một mục tên mới hoặc sửa một địa chỉ. Trong ngữ cản h lập trình, trừu tượng hóa là mô hình hóa thế giới thực theo cách mà nó có thể đư ợc cài đặt dưới dạng một chương trình máy tính."
+    },
+    {
+     "id": "root_data-p015-B03",
+     "page": 15,
+     "text": "Phương pháp hướng đối tượng trừu tượng hóa thế giới thực thành các đối tượng và tương tác giữa chúng với các đối tượng khác . Việc mô hình hóa trở thành mô hình hóa các đối tượng tham gia bài toán – một c ái nhiệt kế, một người chủ tài khoản ngân hàng, một sổ địa chỉ … mỗi đối tượng cần có đủ các thuộc tính và phương thức để thực hiện được tất cả các dịch vụ mà nó được yêu cầu. Đóng gói ( encapsulation ): Các trừu tượng hóa của những gì có liên quan đến nhau được đóng gói vào trong một đơn vị duy nhất. C ác trạng thái và hành vi của các trừu tượng hóa được bọc lại trong một khối gọi là lớp."
+    }
+   ],
+   "context_chars": 3044,
+   "searches": 2,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "Trừu tượng hóa (abstraction) trong lập trình hướng đối tượng là gì",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p015-B00",
+       "page": 15,
+       "score": 0.93082,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p124-B00",
+       "page": 124,
+       "score": 0.89308,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p015-B02",
+       "page": 15,
+       "score": 0.88776,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p015-B00",
+      "root_data-p124-B00",
+      "root_data-p015-B02"
+     ],
+     "seconds": 0.064
+    },
+    {
+     "event": "search",
+     "tool": "bm25",
+     "query": "trừu tượng hóa abstraction Java",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p015-B00",
+       "page": 15,
+       "score": 27.43617,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p015-B02",
+       "page": 15,
+       "score": 22.80162,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p015-B03",
+       "page": 15,
+       "score": 22.38584,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p015-B03"
+     ],
+     "seconds": 0.003
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 3901,
+    "completion_tokens": 695,
+    "cost": 0.0007376,
+    "llm_calls": 2
+   },
+   "seconds": 4.15,
+   "error": null
+  },
+  {
+   "query_id": "D02",
+   "split": "dev",
+   "answerable": true,
+   "config": "two_tools",
+   "question": "Vì sao Java phân phát mã trung gian bytecode thay vì để mỗi người tự biên dịch mã nguồn sang mã máy?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "Java phân phát bytecode thay vì để mỗi người tự biên dịch sang mã máy vì ba lý do chính:\n\n- **Dễ triển khai trên máy mới:** Trình biên dịch là chương trình phức tạp, còn trình thông dịch đơn giản hơn nhiều, nên viết một trình thông dịch cho loại máy mới dễ hơn viết một trình biên dịch [root_data-p022-B01].\n- **Bảo mật:** Nhiều chương trình Java được tải từ mạng, và người dùng không muốn chạy chương trình có thể phá hoại máy hoặc tệp của họ. Trình thông dịch bytecode đóng vai trò bộ đệm giữa máy tính và chương trình tải về [root_data-p022-B01].\n- **Chạy trên nhiều nền tảng:** Chương trình được biên dịch một lần thành bytecode, và bất kỳ máy nào có trình thông dịch bytecode đều chạy được chương trình đó [root_data-p022-B00]. Đây là tính độc lập nền tảng, với khẩu hiệu \"Write once, run anywhere\" [root_data-p020-B03].\n\nCơ chế này hoạt động vì Java biên dịch mã thành ngôn ngữ máy của một máy ảo (JVM), và mỗi hệ thống chỉ cần một trình thông dịch bytecode giả lập máy ảo đó [root_data-p021-B04].",
+   "citations": [
+    "root_data-p022-B01",
+    "root_data-p022-B00",
+    "root_data-p020-B03",
+    "root_data-p021-B04"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p022-B01",
+    "root_data-p022-B00",
+    "root_data-p021-B04",
+    "root_data-p020-B03"
+   ],
+   "context": [
+    {
+     "id": "root_data-p022-B01",
+     "page": 22,
+     "text": "Có nhiều lý do tại sao nên dùng mã trung gian là Ja va bytecode thay cho việc phân phát mã nguồn chương trình Java và để cho mỗi n gười tự biên dịch nó sang mã máy của máy tính họ đang dùng. Thứ nhất, trình b iên dịch là một chương trình phức tạp trong khi trình thông dịch chỉ là một chươ ng trình nhỏ và đơn giản. Viết một trình thông dịch cho một loại máy tính mới dễ h ơn là viết một trình biên dịch. Thứ hai, nhiều chương trình Java cần được tải xuống từ mạng máy tính. Việc này dẫn đến các mối quan tâm dễ thấy về bảo mật: ta khô ng muốn tải về và chạy một chương trình sẽ phá hoại máy tính hoặc các file tro ng máy tính của ta. Trình thông dịch bytecode hoạt động với vai trò bộ đệm giữa máy t ính của ta và chương trình ta tải về."
+    },
+    {
+     "id": "root_data-p022-B00",
+     "page": 22,
+     "text": "dịch bytecode thực hiện nhiệm vụ giả lập, do đó ta n ói rằng một máy tính cần một máy ảo Java để chạy các chương trình Java. Hình 2.1: Biên d ịch và thông d ịch đố i v ới các ch ươ ng trình Java Tất nhiên, mỗi loại máy tính cần một trình thông dị ch Java bytecode khác, nhưng một khi đã có một trình thông dịch như vậy, nó có thể chạy một chương trình Java bytecode bất kì. Và cũng chính chương trình Java bytecode đó có thể chạy trên bất cứ máy tính nào có một trình thông dịch Java byt ecode. Đây chính là một trong các đặc điểm quan trọng của Java: một chương trình s au khi biên dịch có thể chạy trên nhiều loại máy tính khác nhau."
+    },
+    {
+     "id": "root_data-p021-B04",
+     "page": 21,
+     "text": "Những người thiết kế Java chọn cách tổ hợp giữa trì nh biên dịch và trình thông dịch. Các chương trình viết bằng Java được biên dịch thành mã máy, nhưng đây là loại ngôn ngữ máy dành cho loại máy tính không tồn tại – loại máy \"ảo\" này được gọi là Máy ảo Java (Java Virtual Machine – JVM). Ngôn ngữ máy dành cho máy ảo Java được gọi là Java bytecode, hay ngắn gọn là bytec ode. Để chạy được các chương trình Java trên một loại máy tính bất kì, người ta c hỉ cần một trình thông dịch dành cho Java bytecode, trình thông dịch này giả lập máy ảo Java theo kiểu mà Virtual PC giả lập một máy tính PC. Máy ảo Java cũng chính là t ên gọi dành cho trình thông"
+    },
+    {
+     "id": "root_data-p020-B03",
+     "page": 20,
+     "text": "Java có tính độc lập nền tảng ( platform independent ). Một nền tảng ( platform ) ở đây có nghĩa một hệ thống máy tính với hệ điều hành cụ thể, chẳng hạn như một hệ thống Windows hay Macintosh. Thương hiệu của Java l à \"Write once, run anywhere\" ( Viết một lần, chạy bất cứ đâu ). Có nghĩa là một chương trình Java có thể chạy trên các nền tảng khác nhau mà không phải dịch lại. Một số ngôn ngữ bậc cao khác không có được đặc tính này. Tính khả chuyển, h ay khả năng chạy trên hầu như tất cả các nền tảng, còn là nguyên do cho việc Java r ất phù hợp cho các ứng dụng Web."
+    }
+   ],
+   "context_chars": 2875,
+   "searches": 2,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "Vì sao Java dùng bytecode thay vì biên dịch sang mã máy",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p022-B01",
+       "page": 22,
+       "score": 0.92071,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p022-B00",
+       "page": 22,
+       "score": 0.9038,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p021-B04",
+       "page": 21,
+       "score": 0.89761,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p022-B01",
+      "root_data-p022-B00",
+      "root_data-p021-B04"
+     ],
+     "seconds": 0.064
+    },
+    {
+     "event": "search",
+     "tool": "bm25",
+     "query": "bytecode máy ảo Java JVM độc lập nền tảng",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p020-B03",
+       "page": 20,
+       "score": 47.15631,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p021-B04",
+       "page": 21,
+       "score": 40.11442,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p023-B02",
+       "page": 23,
+       "score": 36.92074,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p020-B03"
+     ],
+     "seconds": 0.004
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 3755,
+    "completion_tokens": 737,
+    "cost": 0.0007440000000000001,
+    "llm_calls": 2
+   },
+   "seconds": 4.6,
+   "error": null
+  },
+  {
+   "query_id": "D03",
+   "split": "dev",
+   "answerable": true,
+   "config": "two_tools",
+   "question": "Trình biên dịch JIT (just-in-time) làm nhiệm vụ gì khi chạy chương trình Java?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "Trình biên dịch JIT (just-in-time) dịch Java bytecode thành mã máy ngay trong lúc chương trình đang chạy, và nhiệm vụ của nó vẫn là thực thi chương trình như một trình thông dịch thông thường [root_data-p022-B03]. Vì một phần chương trình thường được thực thi nhiều lần, JIT có thể cải thiện đáng kể tổng thời gian chạy so với khi chỉ thông dịch bytecode [root_data-p023-B00].",
+   "citations": [
+    "root_data-p022-B03",
+    "root_data-p023-B00"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p022-B03",
+    "root_data-p175-B02",
+    "root_data-p023-B00"
+   ],
+   "context": [
+    {
+     "id": "root_data-p022-B03",
+     "page": 22,
+     "text": "Khi Java còn là một ngôn ngữ mới, nó đã bị chỉ tríc h là chạy chậm. Do Java bytecode được thực thi bởi một trình thông dịch, có vẻ như các chương trình bytecode không bao giờ có thể chạy nhanh bằng các c hương trình đã được biên dịch ra ngôn ngữ máy của chính máy tính mà chương trình đang chạy trên đó. Tuy nhiên, vấn đề này đã được giải quyết gần như toàn b ộ bằng việc sử dụng trình biên dịch JIT ( just-in-time compiler ) cho việc thực thi Java bytecode. Trình biên dịch JIT dịch Java bytecode thành mã máy. Nó làm việc này tro ng khi thực thi chương trình. Cũng như một trình thông dịch thông thường, đầu vào cho một trình biên dịch JIT là một chương trình Java bytecode, và nhiệm vụ của nó l à thực thi chương trình đó."
+    },
+    {
+     "id": "root_data-p175-B02",
+     "page": 175,
+     "text": "Chương trình này hoạt động đúng nhưng chưa hề có mã xử lý lỗi. Nếu khi chạy chương trình, ta nhập dữ liệu không phải số nguyên như yêu cầu, chương trình sẽ bị dừng đột ngột với lời báo lỗi được in ra trên cửa s ổ lệnh, ví dụ như trong Hình 11.2. Đó là hậu quả của việc ngoại lệ chưa được xử lý. Hình 11.2: Lỗi run-time do ngo ại l ệ không được x ử lý. Ta lấy thêm một ví dụ khác trong Hình 11.3. Giả sử t a cần ghi một vài dòng văn bản vào một file. Ta dùng đến các lớp File và Print Writer trong gói java.io của thư viện chuẩn Java, File quản lý file, PrintWriter cung cấp các tiện ích ghi dòng văn bản. Chương trình chỉ làm công việc rất đơn giản là (1) m ở file, (2) chuẩn bị cho việc ghi file, (3) ghi vào file một dòng văn bản, và (4) đóng file. Nhưng khi biên dịch, ta gặp"
+    },
+    {
+     "id": "root_data-p023-B00",
+     "page": 23,
+     "text": "với khi chúng được thông dịch. Do một phần của chương trình thường được thực thi nhiều lần trong khi chương trình chạy, một trình bi ên dịch JIT có thể cải thiện đáng kể tổng thời gian chạy của chương trình."
+    }
+   ],
+   "context_chars": 1921,
+   "searches": 2,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "Trình biên dịch JIT just-in-time trong Java làm nhiệm vụ gì",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p022-B03",
+       "page": 22,
+       "score": 0.89077,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p175-B02",
+       "page": 175,
+       "score": 0.87525,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p023-B00",
+       "page": 23,
+       "score": 0.86985,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p022-B03",
+      "root_data-p175-B02",
+      "root_data-p023-B00"
+     ],
+     "seconds": 0.068
+    },
+    {
+     "event": "search",
+     "tool": "bm25",
+     "query": "JIT just-in-time compiler Java",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p022-B03",
+       "page": 22,
+       "score": 49.07943,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p023-B00",
+       "page": 23,
+       "score": 7.87826,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p175-B02",
+       "page": 175,
+       "score": 7.06026,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [],
+     "seconds": 0.002
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 3314,
+    "completion_tokens": 420,
+    "cost": 0.0005414,
+    "llm_calls": 2
+   },
+   "seconds": 3.78,
+   "error": null
+  },
+  {
+   "query_id": "D04",
+   "split": "dev",
+   "answerable": true,
+   "config": "two_tools",
+   "question": "Nếu apples đang bằng 1 thì giá trị của biểu thức ++apples và apples++ khác nhau thế nào?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "Cả hai biểu thức đều làm `apples` tăng từ 1 lên 2, nhưng giá trị của biểu thức khác nhau:\n\n- `++apples`: tăng trước, rồi mới tính giá trị biểu thức, nên có giá trị **2** [root_data-p029-B01].\n- `apples++`: tính giá trị biểu thức trước (là **1**), rồi mới tăng `apples` lên 2 [root_data-p029-B01].",
+   "citations": [
+    "root_data-p029-B01"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p029-B01",
+    "root_data-p030-B00",
+    "root_data-p030-B01",
+    "root_data-p029-B00"
+   ],
+   "context": [
+    {
+     "id": "root_data-p029-B01",
+     "page": 29,
+     "text": "apples++ hay ++apple có tác dụng tăng apples thêm 1 đơn vị apples-- hay --apple có tác dụng giảm apples đi 1 đơn vị Khác biệt giữa việc viết phép tăng/giảm ở trước biến (tăng/giảm trước) và viết phép tăng/giảm ở sau biến (tăng/giảm sau) là thời đ iểm thực hiện phép tăng/giảm, thể hiện ở giá trị của biểu thức. Phép tăng/giảm tr ước được thực hiện trước khi biểu thức được tính giá trị, còn phép tăng/giảm sau được thực hiện sau khi biểu thức được tính giá trị. Ví dụ, nếu apples vốn có giá trị 1 thì các biểu thức ++apples hay apples++ đều có hiệu ứng là apples được tăng từ 1 l ên 2. Tuy nhiên, ++apples là biểu thức có giá trị bằng 2 (tăng apples trước tính giá trị), trong khi apples++ là biểu thức có giá trị bằng 1 (tăng apples sau khi tính giá trị biểu thức)."
+    },
+    {
+     "id": "root_data-p030-B00",
+     "page": 30,
+     "text": "Ký hiệu toán học Toán tử Ví dụ Ý nghĩa > > x > y x lớn hơn y < < x < y x nhỏ hơn y ≥ >= x >= y x lớn hơn hoặc bằng y ≤ <= x <= y x nhỏ hơn hoặc bằng y = == x == y x bằng y ≠ != x != y x khác y Bảng 2.1: Các phép toán so sánh. Toán tử Ý nghĩa Ví dụ Ý nghĩa của ví dụ && And x && y Cho giá trị đúng khi cả x và y đúng, ngược lại cho giá trị sai. || Or x || y Cho giá trị đúng khi x đúng hoặc y đúng, ngược lại cho giá trị sai ! Not !x Phủ định của x. Cho giá trị đúng khi x sai; cho giá trị sai khi x đúng Bảng 2.2: Các phép toán logic. Các phép toán logic dành cho các toán hạng là các b iểu thức quan hệ hoặc các giá trị boolean. Kết quả của biểu thức logic là giá trị boolean. Ví dụ: bool enoughApples = (apples > 3) && (apples < 10);"
+    },
+    {
+     "id": "root_data-p030-B01",
+     "page": 30,
+     "text": "có kết quả là biến enoughApples nhận giá trị là câu trả lời của câu hỏi \"biến apples có giá trị lớn hơn 3 và nhỏ hơn 10 hay không?\"."
+    },
+    {
+     "id": "root_data-p029-B00",
+     "page": 29,
+     "text": "Một số phép gán kèm theo biểu thức xuất hiện nhiều lần trong một chương trình, vì vậy Java cho phép viết các phép gán biểu t hức đó một cách ngắn ngọn hơn, sử dụng các phép gán phức hợp ( += , -=, *= , /= , %= , >>= , <<= , &= , ^= , |= ). Cách sử dụng phép gán phức hợp += như sau: biến += biểu thức; tương đương biến = biến + biểu thức; Ví dụ: apples += 2; tương đương apples = apples + 2; Các phép gán phức hợp khác được sử dụng tương tự. Java còn cung cấp các phép toán ++ (hay -- ) để tăng (giảm) giá trị của biến lên một đơn vị. Ví dụ:"
+    }
+   ],
+   "context_chars": 2454,
+   "searches": 2,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "toán tử tăng trước ++apples và tăng sau apples++ khác nhau giá trị biểu thức",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p029-B01",
+       "page": 29,
+       "score": 0.93779,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p030-B00",
+       "page": 30,
+       "score": 0.88671,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p030-B01",
+       "page": 30,
+       "score": 0.87012,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p029-B01",
+      "root_data-p030-B00",
+      "root_data-p030-B01"
+     ],
+     "seconds": 0.065
+    },
+    {
+     "event": "search",
+     "tool": "bm25",
+     "query": "++apples apples++ toán tử tăng",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p029-B01",
+       "page": 29,
+       "score": 21.84343,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p029-B00",
+       "page": 29,
+       "score": 20.22068,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p030-B00",
+       "page": 30,
+       "score": 19.34957,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p029-B00"
+     ],
+     "seconds": 0.002
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 3648,
+    "completion_tokens": 348,
+    "cost": 0.0005388,
+    "llm_calls": 2
+   },
+   "seconds": 3.32,
+   "error": null
+  },
+  {
+   "query_id": "D05",
+   "split": "dev",
+   "answerable": true,
+   "config": "two_tools",
+   "question": "Phép gán giữa hai biến tham chiếu có sao chép nội dung của đối tượng không?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "Không. Phép gán giữa hai biến tham chiếu không tạo bản sao của đối tượng. Nó chỉ sao chép chuỗi bit của biến tham chiếu bên phải sang biến bên trái, nên biến bên trái sẽ trỏ tới cùng đối tượng mà biến bên phải đang trỏ tới [root_data-p063-B01] [root_data-p062-B01]. Ví dụ với chuỗi String: sau khi gán s2 = s, cả hai cùng chiếu tới một đối tượng String [root_data-p062-B02].\n\nMuốn sao chép nội dung đối tượng thì cần cách khác, và giáo trình sẽ đề cập ở Chương 9 [root_data-p062-B02].",
+   "citations": [
+    "root_data-p063-B01",
+    "root_data-p062-B01",
+    "root_data-p062-B02"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p062-B02",
+    "root_data-p062-B01",
+    "root_data-p063-B01"
+   ],
+   "context": [
+    {
+     "id": "root_data-p062-B02",
+     "page": 62,
+     "text": "Hình 4.4 minh họa kết quả của một phép gán biến tham chiếu. Biến String s2 sau khi nhận giá trị của s thì chiếu tới cùng một đối t ượng String mà s khi đó đang chiếu tới. Phép gán đối với các biến tham chiếu không tạo ra một bản sao của đối tượng. Vậy nếu ta muốn sao chép nội dung đối tượng thì làm thế nào? Vấn đề này sẽ được nói đến trong Ch-¬ng 9."
+    },
+    {
+     "id": "root_data-p062-B01",
+     "page": 62,
+     "text": "4.3. PHÉP GÁN Cũng như ta có thể gán một giá trị mới cho một biến kiểu cơ bản, ta cũng có thể dùng phép gán để chiếu một biến tham chiếu tới một đối tượng khác khi cần, miễn là đối tượng đó phải thuộc cùng kiểu. Thể hiện đúng bản chất của tham chiếu đối tượng, và hoạt động sao chép nội dung của phép gán, phép gán xảy ra giữa hai biến tham chiếu không có tác dụng sao chép nội dung của đối tượng này sang đối tượng khác . Phép gán chỉ sao chép chuỗi bit của biến tham chiếu này sang biến tham chiếu ki a. Kết quả là biến tham chiếu ở vế trái được trỏ tới đối tượng mà biến/biểu thức tha m chiếu tại vế bên phải đang chiếu tới."
+    },
+    {
+     "id": "root_data-p063-B01",
+     "page": 63,
+     "text": "4.4. CÁC PHÉP SO SÁNH Cũng tương tự như phép gán, các phép so sánh == và ! = đối với các biến tham chiếu so sánh chuỗi bit nằm trong các biến đó. Ta b iết rằng chuỗi bit của hai tham chiếu sẽ giống hệt nhau nếu chúng cùng chiếu tới mộ t đối tượng. Nói cách khác, so sánh hai biến tham chiếu là kiểm tra xem chúng có t rỏ tới cùng một đối tượng hay không. Các phép so sánh tham chiếu không hề so sánh nội dung đối tượng mà tham chiếu chiếu tới. Trong ví dụ Hình 4.5, c1 và c3 bằng nhau vì chúng chiếu tới cùng một đối tượng. Còn c1 và c2 khác nhau vì chúng chiếu tới hai đối tượng nằm tại hai chỗ khác nhau trong bộ nhớ, bất kể hai đối tượng đó có \"giống nhau\" về nội dung hay không."
+    }
+   ],
+   "context_chars": 1870,
+   "searches": 2,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "phép gán giữa hai biến tham chiếu có sao chép nội dung đối tượng không",
+     "filter": {
+      "chapter": 4
+     },
+     "results": [
+      {
+       "id": "root_data-p062-B02",
+       "page": 62,
+       "score": 0.94218,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p062-B01",
+       "page": 62,
+       "score": 0.92777,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p063-B01",
+       "page": 63,
+       "score": 0.89543,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p062-B02",
+      "root_data-p062-B01",
+      "root_data-p063-B01"
+     ],
+     "seconds": 0.063
+    },
+    {
+     "event": "search",
+     "tool": "bm25",
+     "query": "phép gán biến tham chiếu sao chép đối tượng",
+     "filter": {
+      "chapter": 4
+     },
+     "results": [
+      {
+       "id": "root_data-p062-B01",
+       "page": 62,
+       "score": 43.79421,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p062-B02",
+       "page": 62,
+       "score": 43.21085,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p063-B01",
+       "page": 63,
+       "score": 28.23672,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [],
+     "seconds": 0.001
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 3334,
+    "completion_tokens": 405,
+    "cost": 0.0005359,
+    "llm_calls": 2
+   },
+   "seconds": 4.46,
+   "error": null
+  },
+  {
+   "query_id": "D06",
+   "split": "dev",
+   "answerable": true,
+   "config": "two_tools",
+   "question": "Mảng trong Java là kiểu cơ bản hay là đối tượng, và biến mảng thực chất chứa gì?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "Trong Java, mảng là **đối tượng**, không phải kiểu cơ bản. Mảng có thể chứa phần tử kiểu cơ bản hoặc kiểu tham chiếu, nhưng bản thân mỗi mảng vẫn là một đối tượng [root_data-p064-B00][root_data-p064-B02].\n\nBiến mảng **không chứa** dữ liệu của mảng mà chỉ là **tham chiếu** tới đối tượng mảng. Ví dụ `int[] nums; nums = new int[5];` tạo một đối tượng mảng và gắn nó với biến `nums` [root_data-p064-B00].\n\nVới mảng kiểu tham chiếu như `Cow[]`, mỗi phần tử là một biến tham chiếu tới đối tượng `Cow`, chứ không phải bản thân đối tượng `Cow` [root_data-p064-B01].",
+   "citations": [
+    "root_data-p064-B00",
+    "root_data-p064-B02",
+    "root_data-p064-B01"
+   ],
+   "invalid_citations": [
+    "5"
+   ],
+   "context_ids": [
+    "root_data-p064-B00",
+    "root_data-p064-B02",
+    "root_data-p064-B01",
+    "root_data-p059-B03"
+   ],
+   "context": [
+    {
+     "id": "root_data-p064-B00",
+     "page": 64,
+     "text": "4.5. MẢNG Về mặt hình tượng, mảng (array ) là một chuỗi các biến thuộc cùng một loại được đánh số thứ tự. Ví dụ một mảng int kích thước 5 là một chuỗi liên tục 5 biến kiểu int được đánh số thứ tự từ 0 tới 4. Một mảng Java thực c hất là một đối tượng. Một biến mảng là tham chiếu tới một đối tượng mảng. Ví dụ: int[] nums; nums = new int[5]; nums[3] = 2; Lệnh thứ nhất khai báo biến tham chiếu nums kiểu mả ng int (int[]). Nó sẽ là cái điều khiểu từ xa của một đối tượng mảng. Lệnh thứ h ai tạo một mảng int với độ dài 5 và gắn nó với biến nums đã được khai báo trước đó. Lệnh thứ ba gán giá trị 2 cho phần tử có chỉ số 3 trong mảng. Hình 4.6. Tham chi ếu và đối t ượng m ảng int."
+    },
+    {
+     "id": "root_data-p064-B02",
+     "page": 64,
+     "text": "Tóm lại, mảng có thể được khai báo để chứa các phần tử thuộc kiểu cơ bản hoặc kiểu tham chiếu đối tượng. Tùy theo mảng được khai báo kiểu dữ liệu gì thì chứa các phần tử là biến thuộc kiểu dữ liệu đó. Tuy nhiê n, dù các phần tử thuộc kiểu cơ bản hay tham chiếu đối tượng thì bản thân mỗi mảng là một đối tượng, và biến mảng là tham chiếu tới đối tượng mảng."
+    },
+    {
+     "id": "root_data-p064-B01",
+     "page": 64,
+     "text": "Ví dụ trên minh họa mảng gồm các phần tử kiểu cơ bản. Mỗi phần tử mảng kiểu int là một biến kiểu int. Vậy còn mảng Cow hay mảng String thì sao? Cũng y hệt như vậy, mảng Cow chứa các biến kiểu Cow, nghĩa là các tham chiếu đối tượng Cow (cái điều khiển từ xa chứ không phải bản thân đối tượng Cow). co ws Co w[] co ws; co ws = ne w Co w[5]; co ws[0] = ne w Co wắ); co ws[1] = ne w Co wắ); Co w[] 0 1 2 3 4 Co w Co w Co w Co w Co w đối tượng mảng Co w ắCo w[]) :Co w đối tượng Co w :Co w đối tượng Co w Hình 4.7. Tham chi ếu và đối t ượng m ảng Cow."
+    },
+    {
+     "id": "root_data-p059-B03",
+     "page": 59,
+     "text": "4.2. THAM CHIẾU ĐỐI TƯỢNG VÀ ĐỐI TƯỢNG Biến kiểu cơ bản chỉ lưu các giá trị cơ bản. Vậy còn các đối tượng thì sao? Thực ra, trong Java không có khái niệm biến đối tượng, mà chỉ có biến tham chiếu đối tượng. Một biến tham chiếu đối tượng lưu trữ c ác bit đại diện cho một cách truy nhập tới một đối tượng. Biến tham chiếu k hông lưu trữ chính đối tượng đó. Có thể nói rằng nó lưu cái gì đó giống như một con trỏ, hay địa chỉ của đối tượng trong bộ nhớ máy tính. Ta không biết chính xác giá trị đó là cái gì. Chỉ cần biết rằng giá trị đó đại diện cho một và chỉ một đối tượ ng, và rằng máy ảo Java biết cách dùng tham chiếu đó để truy nhập đối tượng."
+    }
+   ],
+   "context_chars": 2510,
+   "searches": 2,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "mảng trong Java là kiểu tham chiếu hay đối tượng, biến mảng chứa gì",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p064-B00",
+       "page": 64,
+       "score": 0.9324,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p064-B02",
+       "page": 64,
+       "score": 0.91276,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p064-B01",
+       "page": 64,
+       "score": 0.90853,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p064-B00",
+      "root_data-p064-B02",
+      "root_data-p064-B01"
+     ],
+     "seconds": 0.063
+    },
+    {
+     "event": "search",
+     "tool": "bm25",
+     "query": "mảng Java đối tượng biến mảng tham chiếu",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p064-B02",
+       "page": 64,
+       "score": 38.81133,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p064-B00",
+       "page": 64,
+       "score": 36.69424,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p059-B03",
+       "page": 59,
+       "score": 23.95964,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p059-B03"
+     ],
+     "seconds": 0.004
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 3756,
+    "completion_tokens": 538,
+    "cost": 0.0006446,
+    "llm_calls": 2
+   },
+   "seconds": 3.83,
+   "error": null
+  },
+  {
+   "query_id": "D07",
+   "split": "dev",
+   "answerable": true,
+   "config": "two_tools",
+   "question": "Khi phương thức sửa giá trị tham số kiểu int, đối số truyền vào ở nơi gọi có bị thay đổi không?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "Không. Java chỉ dùng cơ chế truyền bằng giá trị (pass-by-value): khi truyền đối số, chỉ giá trị của nó được chép vào tham số tương ứng, và mọi thao tác trong phương thức chỉ thực hiện trên tham số (biến địa phương) đó. Vì vậy đối số ở nơi gọi không bị ảnh hưởng [root_data-p073-B02] [root_data-p074-B00].\n\nVí dụ trong giáo trình: phương thức `moo(int numOfMoos)` giảm dần `numOfMoos` về 0, nhưng biến `moos = 3` ở nơi gọi vẫn giữ nguyên giá trị 3 khi in ra [root_data-p074-B00].",
+   "citations": [
+    "root_data-p073-B02",
+    "root_data-p074-B00"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p071-B02",
+    "root_data-p073-B02",
+    "root_data-p072-B00",
+    "root_data-p074-B02",
+    "root_data-p074-B00"
+   ],
+   "context": [
+    {
+     "id": "root_data-p071-B02",
+     "page": 71,
+     "text": "5.2. TRUYỀN THAM SỐ VÀ GIÁ TRỊ TRẢ VỀ Cũng như trong các ngôn ngữ lập trình khác, ta có t hể truyền các giá trị vào trong phương thức. Ví dụ, ta muốn chỉ thị cho một đ ối tượng Cow về số lần rống cần thực hiện bằng cách gọi phương thức như sau: c.moo(3); Ta gọi đối số (argument ) là những gì ta truyền vào trong phương thức. Đối với Java, đối số là một giá trị , chẳng hạn 3 như trong lời gọi ở trên, hoặc \"Hello \" như trong System.out.println(\"Hello\"), hoặc giá trị của một tham chiếu tới một đối tượng Cow. Khi lời gọi phương thức được thực thi, giá trị đối số đó được chép vào một tham số. Tham số ( parameter ) thực chất chỉ là một biến địa phương của phương t hức – một biến có một cái tên và một kiểu dữ liệu, nó có thể được sử dụng bên trong thân của phương thức."
+    },
+    {
+     "id": "root_data-p073-B02",
+     "page": 73,
+     "text": "5.3. CƠ CHẾ TRUYỀN BẰNG GIÁ TRỊ Ngôn ngữ lập trình sử dụng duy nhất một cơ chế truy ền tham số: truyền bằng giá trị (pass-by-value ). Khi một đối số được truyền vào một phương thức, chỉ có giá"
+    },
+    {
+     "id": "root_data-p072-B00",
+     "page": 72,
+     "text": "void moo(int numOfMoos ) { while (numOfMoos > 0) { System.out.println(\"Moo...\"); numOfMoos = numOfMoos – 1; } } Cow c = new Cow(); c>moo(3); tham số đối số (2) giá trị đối số 3 được chép vào tham số numOfMoos ĐĐĐĐĐĐ11 (1) Gọi phương thức moo từ tham chiếu Cow và truyền giá trị 3 vào phương thưc dưới dạng đối số (3) tham số numOfMoos được dùng như một biến địa phương trong phương thức Hình 5.1: Đối s ố và tham s ố. Điều quan trọng cần nhớ: Nếu một phương thức yêu cầ u một tham số, ta phải truyền cho nó một giá trị nào đó, và giá trị đó phải thuộc đúng kiểu được khai báo của tham số. Phương thức có thể có nhiều tham số. Khi khai báo, ta dùng dấu phảy để tách giữa chúng. Và khi gọi hàm, ta phải truyền các đối số thuộc đúng kiểu dữ liệu và theo đúng thứ tự đã khai báo."
+    },
+    {
+     "id": "root_data-p074-B02",
+     "page": 74,
+     "text": "• Các phương thức có thể sử dụng các biến thực thể củ a đối tượng, nhờ đó các đối tượng thuộc cùng một lớp có thể có hành xử không giống nhau. • Một phương thức có thể có các tham số. Ta có thể tr uyền các giá trị vào phương thức qua các tham số của phương thức. • Số lượng và kiểu dữ liệu của các giá trị ta truyền vào phương thức (đối số) phải khớp với thứ tự và kiểu dữ liệu của các tham số được khai báo của phương thức. • Các giá trị truyền vào phương thức hoặc được trả về từ phương thức có thể được ngầm đổi từ kiểu hẹp hơn sang kiểu rộng hơn, hoặc p hải được đổi tường minh sang kiểu hẹp hơn. • Các giá trị dùng làm đối số có thể là một giá trị t rực tiếp (1, 'd', v.v..) hoặc một biến hay biểu thức có giá trị thuộc kiểu đã được khai báo cho tham số."
+    },
+    {
+     "id": "root_data-p074-B00",
+     "page": 74,
+     "text": "trị của nó được chép vào tham số tương ứng. Kể từ đ ó, các thao tác liên quan của phương thức chỉ được thực hiện trên tham số đó – th ực chất là biến địa phương của phương thức. Còn bản thân đối số đó không chịu ảnh hưởng gì của phương thức được gọi. void moo(int numOfMoos ) { while (numOfMoos > 0) { System.out.println(\"Moo...\"); numOfMoos = numOfMoos – 1; } } Cow c = new Cow(); int moos = 3; c.moo(moos); System>out>println(moos); tham số numOfMoos bọ giảm dần ở bên trong moo(), còn đối số moos vẫn giữ nguyên giá trị cũ (3) % java SomeựestDrive Moo...Moo...Moo… 3 giá trị của đối số moos được chép vào tham số numOfMoos Hình 5.5: Đối s ố không ch ịu ảnh h ưởng c ủa tham s ố."
+    }
+   ],
+   "context_chars": 3528,
+   "searches": 3,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "truyền tham số kiểu int trong Java có bị thay đổi giá trị không, pass by value",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p071-B02",
+       "page": 71,
+       "score": 0.88332,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p073-B02",
+       "page": 73,
+       "score": 0.87929,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p072-B00",
+       "page": 72,
+       "score": 0.8693,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p071-B02",
+      "root_data-p073-B02",
+      "root_data-p072-B00"
+     ],
+     "seconds": 0.063
+    },
+    {
+     "event": "search",
+     "tool": "bm25",
+     "query": "truyền tham trị int phương thức đối số không thay đổi",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p071-B02",
+       "page": 71,
+       "score": 30.25197,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p074-B02",
+       "page": 74,
+       "score": 27.77162,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p072-B00",
+       "page": 72,
+       "score": 23.74527,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p074-B02"
+     ],
+     "seconds": 0.004
+    },
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "pass-by-value chỉ có giá trị của đối số được chép vào tham số, thay đổi tham số trong phương thức không ảnh hưởng biến bên ngoài",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p073-B02",
+       "page": 73,
+       "score": 0.88826,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p074-B00",
+       "page": 74,
+       "score": 0.87713,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p071-B02",
+       "page": 71,
+       "score": 0.87439,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p074-B00"
+     ],
+     "seconds": 0.064
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 6988,
+    "completion_tokens": 644,
+    "cost": 0.0010208,
+    "llm_calls": 3
+   },
+   "seconds": 5.37,
+   "error": null
+  },
+  {
+   "query_id": "D08",
+   "split": "dev",
+   "answerable": true,
+   "config": "two_tools",
+   "question": "Ngoài việc bảo vệ dữ liệu, đóng gói và che giấu dữ liệu còn mang lại lợi ích gì?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "Ngoài việc bảo vệ dữ liệu, đóng gói và che giấu dữ liệu còn mang lại lợi ích khác: khả năng thay đổi cấu trúc bên trong của một lớp mà không làm ảnh hưởng đến những phần mã bên ngoài đang sử dụng lớp đó [root_data-p077-B00].\n\nNgoài ra, che giấu thông tin nghĩa là giấu các chi tiết bên trong của đối tượng khỏi thế giới bên ngoài, để người dùng chỉ cần biết giao diện mà không cần biết cách cài đặt [root_data-p016-B02].",
+   "citations": [
+    "root_data-p077-B00",
+    "root_data-p016-B02"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p077-B00",
+    "root_data-p016-B02",
+    "root_data-p076-B01",
+    "root_data-p018-B01",
+    "root_data-p075-B02"
+   ],
+   "context": [
+    {
+     "id": "root_data-p077-B00",
+     "page": 77,
+     "text": "Hình 5.7: Lớp SecuredCow và nguyên t ắc đóng gói Ngoài việc bảo vệ dữ liệu, đóng gói và che giấu dữ l iệu còn mang lại một lợi ích khác. Đó là khả năng thay đổi cấu trúc bên trong củ a một lớp mà không làm ảnh hưởng đến những phần mã bên ngoài có sử dụng đến lớp đó."
+    },
+    {
+     "id": "root_data-p016-B02",
+     "page": 16,
+     "text": "Khái niệm đóng gói còn đi kèm với khái niệm che giấu thông tin (information hiding ) nghĩa là che giấu các chi tiết bên trong của một đối tượng khỏi thế giới bên ngoài. Chẳng hạn khi dùng một cái cầu dao điện, đối với người sử dụng, nó chỉ là một cái hộp mà khi gạt cần sẽ có tác dụng ngắt và n ối điện và cái hộp có khả năng tự ngắt điện khi quá tải. Người dùng không biết và khô ng cần biết các mạch điện bên trong được thiết kế ra sao, cơ chế phát hiện quá tả i như thế nào. Những chi tiết đó được giấu bên trong, còn từ bên ngoài ta chỉ nhìn t hấy cầu dao là một cái hộp có cần gạt."
+    },
+    {
+     "id": "root_data-p076-B01",
+     "page": 76,
+     "text": "} } Nửa công việc còn lại, cần làm gì để che giấu dữ li ệu, không cho phép các đoạn mã khác dùng tham chiếu trực tiếp sửa biến thực thể ? Làm cách nào để che gi ấu dữ liệu? Quy tắc khởi đầu cho việc thực hiện đóng gói là: đánh dấu các biến thực thể với từ khóa private và cung cấp các phương thức public set và get cho biến đó. Các từ khóa private và public quy định quyền truy nhập c ủa biến thực thể, phương thức, hay lớp được khai báo với từ khóa đó. (Ta đã quen v ới từ khóa public, nó đi kèm khai báo của tất cả các phương thức main.) Từ khóa private có nghĩa là riêng tư, cá nhân. Trong một lớp, biến thực thể / phương thức nà o được khai báo với từ khóa private thì chỉ có mã chương trình ở bên trong lớp đ ó mới có quyền truy nhập biến / phương thức đó."
+    },
+    {
+     "id": "root_data-p018-B01",
+     "page": 18,
+     "text": "A. Trừu tượng hóa B. Đa hình C. Đóng gói D. Che giấu thông tin E. Thừa kế 5. \"Che đi các chi tiết cài đặt và chỉ cho thấy giao d iện của mô-đun\" là đặc điểm của khái niệm nào? A. Trừu tượng hóa B. Đa hình C. Đóng gói D. Tái sử dụng"
+    },
+    {
+     "id": "root_data-p075-B02",
+     "page": 75,
+     "text": "} } Co w na me a ge getNa me() setNa me() getAge() setAge() Hình 5.6: Lớp Cow với các hàm đọc/ghi Cho đến nay, ta đã lờ đi một trong những nguyên tắc quan trọng nhất của lập trình hướng đối tượng, đó là đóng gói và che giấu th ông tin. Nguyên tắc này nói rằng \" Đừng để lộ cấu trúc dữ liệu bên trong \". Trong tất cả các ví dụ từ đầu cuốn sách đến giờ, ta đã để lộ tất cả dữ liệu. 'Để lộ' ở đây có nghĩa là từ bên ngoài lớp có thể dùng một tham chiếu tới đối tượng kèm theo toán tử dấu chấm (.) để truy nhập biến thực thể của đối tượng đó. Ví dụ: theCow.age = 2;"
+    }
+   ],
+   "context_chars": 2755,
+   "searches": 2,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "lợi ích của đóng gói và che giấu dữ liệu ngoài việc bảo vệ dữ liệu",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p077-B00",
+       "page": 77,
+       "score": 0.93177,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p016-B02",
+       "page": 16,
+       "score": 0.88334,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p076-B01",
+       "page": 76,
+       "score": 0.87925,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p077-B00",
+      "root_data-p016-B02",
+      "root_data-p076-B01"
+     ],
+     "seconds": 0.067
+    },
+    {
+     "event": "search",
+     "tool": "bm25",
+     "query": "đóng gói che giấu dữ liệu lợi ích",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p077-B00",
+       "page": 77,
+       "score": 67.06461,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p018-B01",
+       "page": 18,
+       "score": 34.13152,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p075-B02",
+       "page": 75,
+       "score": 33.41269,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p018-B01",
+      "root_data-p075-B02"
+     ],
+     "seconds": 0.003
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 3806,
+    "completion_tokens": 376,
+    "cost": 0.0005686,
+    "llm_calls": 2
+   },
+   "seconds": 3.3,
+   "error": null
+  },
+  {
+   "query_id": "D09",
+   "split": "dev",
+   "answerable": true,
+   "config": "two_tools",
+   "question": "Khi gọi một phương thức từ tham chiếu đối tượng, máy ảo Java chọn phiên bản nào của phương thức trong cây thừa kế?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "Khi gọi một phương thức qua tham chiếu đối tượng, máy ảo Java chọn **phiên bản thấp nhất** trong cây thừa kế (tức phiên bản đặc thù nhất với lớp thực tế của đối tượng). Ví dụ với đối tượng Wolf, thứ tự tìm từ thấp lên cao là Wolf → Canine → Animal: JVM bắt đầu tìm ở lớp Wolf, nếu không có phiên bản khớp thì chuyển lên lớp cha kế tiếp, cho đến khi gặp phiên bản khớp [root_data-p108-B00].\n\nLưu ý: trình biên dịch chỉ kiểm tra theo kiểu của tham chiếu, còn lúc chạy JVM xét đối tượng thực tế trong heap; vì vậy phiên bản ghi đè phải có tham số và kiểu trả về giống phiên bản của lớp cha [root_data-p115-B02].",
+   "citations": [
+    "root_data-p108-B00",
+    "root_data-p115-B02"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p108-B00",
+    "root_data-p115-B02",
+    "root_data-p134-B00",
+    "root_data-p152-B02",
+    "root_data-p115-B00"
+   ],
+   "context": [
+    {
+     "id": "root_data-p108-B00",
+     "page": 108,
+     "text": "Khi gọi phương thức từ một tham chiếu đối tượng, ta đang gọi phiên bản đặc thù nhất của phương thức đó đối với lớp của đối tượ ng cụ thể đó. Nếu hình dung cây thừa kế theo kiểu các lớp cha ở phía trên còn c ác lớp con ở phía dưới, thì quy tắc ở đây là: phiên bản thấp nhất sẽ được gọi. Trong ví dụ dùng biến w để gọi phương thức cho một đối tượng Wolf ở trên, thứ tự từ thấp lên cao lần lượt là Wolf, Canine, Animal. Khi gọi một phương thức cho một đối tượng W olf, máy ảo Java bắt đầu tìm từ lớp Wolf lên, nếu nó không tìm được một phiên bả n của phương thức đó tại Wolf thì nó chuyển lên tìm tại lớp tiếp theo bên trên Wo lf ở cây thừa kế, cứ như vậy cho đến khi tìm thấy một phiên bản khớp với lời gọi phươ ng thức."
+    },
+    {
+     "id": "root_data-p115-B02",
+     "page": 115,
+     "text": "Nhớ lại rằng, với mỗi lời gọi phương thức, trình biê n dịch dùng kiểu tham chiếu để xác định xem ta có thể gọi phương thức đó từ tha m chiếu đó hay không. Với một tham chiếu kiểu Appliance (thiết bị điện) chiếu tới một đối tượng ElectricFan (quạt điện), trình biên dịch chỉ quan tâm xem lớp Applian ce có phương thức mà ta đang gọi từ tham chiếu Appliance hay không. Còn khi chươ ng trình chạy, máy ảo Java không để ý đến kiểu tham chiếu (Appliance) và chỉ q uan tâm đến đối tượng ElectricFan thực tế đang nằm trong bộ nhớ heap. Do đó, nếu trình biên dịch đã chấp thuận lời gọi phương thức, lời gọi đó chỉ có thể ho ạt động được nếu như phiên bản cài đè cũng có các tham số và kiểu trả về giống như phiên bản của Appliance."
+    },
+    {
+     "id": "root_data-p134-B00",
+     "page": 134,
+     "text": "đối tượng đó có một cái lõi là phần Object (chữ cái O viết hoa) của nó. Một tham chiếu kiểu Cow tới đối tượng này có thể 'nhìn thấy' toàn bộ đối tượng Cow, do đó có thể truy nhập toàn bộ các phương thức của Cow, bao gồm cả các phương thức được thừa kế. Trong khi đó, một tham chiếu kiểu Object c hiếu tới cùng một đối tượng chỉ có thể 'nhìn thấy' phần Object của đối tượng đó, do đó chỉ có thể truy cập phần đó. Hình 8.4: C ấu trúc l ớp con và ph ần được th ừa k ế. Như vậy ta đã giải thích được tại sao khi dùng một tham chiếu kiểu lớp cha cho đối tượng thuộc lớp con thì lớp con có vẻ như mất bản sắc riêng."
+    },
+    {
+     "id": "root_data-p152-B02",
+     "page": 152,
+     "text": "Ta thấy thân hàm Hippo(String name) trong ví dụ Hìn h 9.9 không làm gì ngoài việc gọi phương thức khởi tạo của lớp cha với danh s ách tham số giống hệt. Có thể có người đọc thắc mắc vì sao phải viết hàm khởi tạo lớp con với nội dung chỉ như vậy. Trong khi nếu lớp con thừa kế lớp cha thì lớp c on không cần cài lại cũng nghiễm nhiên được sử dụng phiên bản được thừa kế của lớp cha với danh sách tham số giống hệt, việc viết phương thức cài đè tại lớp con với nội dung chỉ gồm lời gọi tới phiên bản được thừa kế tại lớp cha là không cần thi ết. Thực ra, tuy cùng là các phương thức khởi tạo và có cùng danh sách tham số, nhưng phương thức Hippo(String name) và Animal(String name) khác tên. Hippo(String name) không cài đè Animal(String name)."
+    },
+    {
+     "id": "root_data-p115-B00",
+     "page": 115,
+     "text": "Từ khóa super của Java thực chất là một tham chiếu tới phần được thừa kế của một đối tượng. Khi mã của lớp con dùng super, chẳng hạn như trong lời gọi phương thức, phiên bản được thừa kế sẽ chạy."
+    }
+   ],
+   "context_chars": 3342,
+   "searches": 2,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "Khi gọi phương thức từ tham chiếu đối tượng, JVM chọn phiên bản nào trong cây thừa kế (dynamic dispatch, ghi đè)",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p108-B00",
+       "page": 108,
+       "score": 0.88994,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p115-B02",
+       "page": 115,
+       "score": 0.88247,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p134-B00",
+       "page": 134,
+       "score": 0.87866,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p108-B00",
+      "root_data-p115-B02",
+      "root_data-p134-B00"
+     ],
+     "seconds": 0.07
+    },
+    {
+     "event": "search",
+     "tool": "bm25",
+     "query": "phương thức ảo ghi đè JVM chọn phiên bản thừa kế",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p152-B02",
+       "page": 152,
+       "score": 30.65192,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p115-B00",
+       "page": 115,
+       "score": 30.63248,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p107-B01",
+       "page": 107,
+       "score": 29.35659,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p152-B02",
+      "root_data-p115-B00"
+     ],
+     "seconds": 0.004
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 4126,
+    "completion_tokens": 522,
+    "cost": 0.0006736,
+    "llm_calls": 2
+   },
+   "seconds": 3.48,
+   "error": null
+  },
+  {
+   "query_id": "D10",
+   "split": "dev",
+   "answerable": true,
+   "config": "two_tools",
+   "question": "Vì sao không nên cho lớp Piano làm lớp con của DoorBell chỉ để dùng lại mã in?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "Không nên, vì đàn piano không phải là một loại chuông cửa: quan hệ thừa kế chỉ nên dùng khi lớp con thực sự là một loại của lớp cha, còn ở đây cây thừa kế bị thiết kế sai về mặt ngữ nghĩa [root_data-p110-B02]. Thừa kế chỉ để tái sử dụng mã là cách dùng bị cấm, vì nó vi phạm quy tắc quan hệ cha–con [root_data-p110-B02].\n\nCách đúng là đặt đoạn mã in vào một lớp `Printer` và cho các lớp cần in (như Piano) dùng nó qua quan hệ HAS-A, tức là Piano chứa/sử dụng một đối tượng Printer [root_data-p110-B02].",
+   "citations": [
+    "root_data-p110-B02"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p110-B02",
+    "root_data-p135-B01",
+    "root_data-p137-B00",
+    "root_data-p141-B01",
+    "root_data-p110-B04"
+   ],
+   "context": [
+    {
+     "id": "root_data-p110-B02",
+     "page": 110,
+     "text": "KHÔNG NÊN dùng thừa kế chỉ nhằm mục đích tái sử dụng mã của một lớp khác, trong khi quan hệ giữa lớp cha và lớp con vi phạm một trong hai quy tắc ở trên. Ví dụ, giả sử ta đã viết cho lớp DoorBell (ch uông cửa) một đoạn mã dành riêng cho việc in, và giờ ta cần viết mã cho chức năng in của lớp Piano. Không nên vì nhu cầu đó mà cho Piano làm lớp con của DoorBell. Đàn p iano không phải là một loại chuông gọi cửa. (Giải pháp nên chọn cho tình huống này là: phần mã cho chức năng in nên được đặt trong một lớp Printer, và các lớp cần có chức năng in sẽ hưởng lợi từ lớp Printer đó qua một quan hệ HAS-A.)"
+    },
+    {
+     "id": "root_data-p135-B01",
+     "page": 135,
+     "text": "8.7. ĐA THỪA KẾ VÀ VẤN ĐỀ HÌNH THOI Cây thừa kế động vật vốn được thiết kế để dùng cho bài toán giả lập môi trường sống của động vật. Nếu cần xây dựng phần mềm dạy học cho môn động vật học, ta sẽ tái sử dụng được các lớp trong cây thừa kế đó. G iả sử bây giờ ta mới nhận được yêu cầu xây dựng phần mềm PetShop cho cửa hàng thú cảnh, và ta muốn dùng lớp Dog cho phần mềm mới. Hiện tại các lớp động vật chưa có các hành vi của thú cảnh (Pet) như play() và beFriendly() . Với vai trò lập trình viên cho lớp Dog, ta sẽ làm gì? Chỉ việc thêm những phương thức cần thiết? Làm vậy ta sẽ không p há vỡ mã của bất kì ai khác vì ta không động đến các phương thức đã có sẵn mà mã của người khác có thể gọi cho các đối tượng Dog."
+    },
+    {
+     "id": "root_data-p137-B00",
+     "page": 137,
+     "text": "ComboDrive Digitalởecorder int i burn() CDBurner burn() DVDBurner burn() Hình 8.5: Ví d ụ v ề v ấn đề Hình thoi c ủa đa th ừa k ế. Ngôn ngữ lập trình nào cho phép đa thừa kế sẽ phải giải quyết những tình trạng rối rắm trên, sẽ phải có những quy tắc đặc biệt để xử lý những tình huống nhập nhằng ngữ nghĩa có thể xảy ra. C++ là một trong nhữ ng ngôn ngữ như vậy. Java được thiết kế theo tiêu chí đơn giản, nên nó không cho phép một lớp được thừa kế từ nhiều hơn một lớp cha. Vậy ta phải giải quyết bài toán thú cảnh như thế nào với Java?"
+    },
+    {
+     "id": "root_data-p141-B01",
+     "page": 141,
+     "text": "3. Phương thức trừu tượng là gì? Hãy mô tả các tình hu ống mà ta nên khai báo một phương thức là phương thức trừu tượng. 4. So sánh lớp trừu tượng và interface, khi nào ta nên dùng lớp trừu tượng, khi nào nên dùng interface? 5. Đa hình hỗ trợ như thế nào cho khả năng mở rộng cây thừa kế? 6. Liệt kê 4 kiểu gán tham chiếu lớp cha và lớp con ch o các biến kiểu lớp cha và lớp con, mỗi kiểu có những thông tin quan trọng gì? 7. Giải thích quan điểm rằng đa hình cho phép lập trìn h tổng quát thay vì lập trình cho từng trường hợp cụ thể. Dùng ví dụ minh họa. Lậ p trình tổng quát mang lại những ích lợi gì? 8. Một lớp con có thể thừa kế giao diện hay cài đặt từ một lớp cha. Một cây thừa kế được thiết kế để cho thừa kế giao diện khác với cây thừa kế được dành cho thừa kế cài đặt như thế nào?"
+    },
+    {
+     "id": "root_data-p110-B04",
+     "page": 110,
+     "text": "7.6. LỢI ÍCH CỦA QUAN HỆ THỪA KẾ Quan hệ thừa kế trong thiết kế mang lại cho ta rất nhiều điều. Lợi ích thứ nhất: tránh lặp các đoạn mã bị trùng lặ p. Ta có thể loại bỏ được những đoạn mã trùng lặp bằng cách tách ra các hành vi chung của một nhóm các lớp đối tượng và đưa phần mã đó vào một lớp cha. Nhờ đó, khi ta cần sửa nó, ta chỉ cần cập nhật mã ở duy nhất một nơi, và sửa đổi đó có hiệu lực tại tất cả các lớp kế thừa h ành vi đó . Công việc gói gọn trong việc sửa và dịch lớp cha. T óm lại: ta không phải động đến các lớp con !"
+    }
+   ],
+   "context_chars": 3534,
+   "searches": 2,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "không nên kế thừa lớp Piano từ DoorBell chỉ để tái sử dụng mã",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p110-B02",
+       "page": 110,
+       "score": 0.92376,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p135-B01",
+       "page": 135,
+       "score": 0.86855,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p137-B00",
+       "page": 137,
+       "score": 0.86832,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p110-B02",
+      "root_data-p135-B01",
+      "root_data-p137-B00"
+     ],
+     "seconds": 0.065
+    },
+    {
+     "event": "search",
+     "tool": "bm25",
+     "query": "Piano DoorBell kế thừa",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p110-B02",
+       "page": 110,
+       "score": 19.89779,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p141-B01",
+       "page": 141,
+       "score": 10.65504,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p110-B04",
+       "page": 110,
+       "score": 10.63535,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p141-B01",
+      "root_data-p110-B04"
+     ],
+     "seconds": 0.003
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 4244,
+    "completion_tokens": 449,
+    "cost": 0.0006489,
+    "llm_calls": 2
+   },
+   "seconds": 3.75,
+   "error": null
+  },
+  {
+   "query_id": "D11",
+   "split": "dev",
+   "answerable": true,
+   "config": "two_tools",
+   "question": "Chỉ thay đổi kiểu trả về giữa hai phương thức trùng tên có được coi là cài chồng (overload) hợp lệ không?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "Không. Khác biệt duy nhất ở kiểu trả về là không đủ để cài chồng hợp lệ; nếu không, trình biên dịch sẽ coi đó là cài đè phương thức. Để overload, phải thay đổi danh sách tham số [root_data-p117-B01]. Cài chồng là các phương thức trùng tên nhưng khác danh sách đối số [root_data-p116-B02].",
+   "citations": [
+    "root_data-p117-B01",
+    "root_data-p116-B02"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p117-B01",
+    "root_data-p115-B01",
+    "root_data-p116-B00",
+    "root_data-p116-B02"
+   ],
+   "context": [
+    {
+     "id": "root_data-p117-B01",
+     "page": 117,
+     "text": "• Khác biệt duy nhất ở kiểu trả về là không đủ. Nếu kh ông, đó không phải là việc cài chồng hợp lệ, trình biên dịch sẽ cho rằng ta đang định cài đè phương thức. Để overload, ta nhất định phải sửa danh sách tham số. • Có thể nới rộng hoặc hạn chế quyền truy nhập tùy ý. Ta có thể tùy ý thay đổi quyền truy nhập của phương thức chồng vì phương thức mới không bị buộc phải tuân theo hợp đồng đa hình, nếu có, của phương thức cũ."
+    },
+    {
+     "id": "root_data-p115-B01",
+     "page": 115,
+     "text": "7.9. CÁC QUY TẮC CHO VIỆC CÀI ĐÈ Khi ta cài đè một phương thức của lớp cha, ta đồng ý tuân thủ hợp đồng mà lớp cha đã cam kết. Chẳng hạn, hợp đồng nói rằng \"tôi không lấy đối số và tôi trả về một giá trị boolean\". Nói cách khác, các kiểu đối số và kiểu trả về của phiên bản mới của phương thức phải trông giống hệt với bản của lớp cha. Các phương thức chính là hợp đồng."
+    },
+    {
+     "id": "root_data-p116-B00",
+     "page": 116,
+     "text": "1. Danh sách tham số phải trùng nhau, kiểu giá trị trả về phải tương thích . Hợp đồng của lớp cha quy định quy cách mà các phần mã k hác sử dụng các phương thức của nó. Phương thức của lớp cha có thể được gọ i với danh sách đối số như thế nào thì cũng có thể gọi phương thức của lớp con với danh sách đối số đó. Phương thức của lớp cha tuyên bố kiểu trả về là gì, thì phương thức của lớp con cũng phải khai báo chính kiểu trả về đó hoặc một kiể u lớp con của kiểu đó. Nhớ lại rằng một đối tượng thuộc lớp con phải được đảm bảo có thể làm được bất cứ thứ gì mà lớp cha đã tuyên bố, do đó, việc trả về đối tượng lớp con ở vị trí của đối tượng lớp cha là việc an toàn."
+    },
+    {
+     "id": "root_data-p116-B02",
+     "page": 116,
+     "text": "7.10. CHỒNG PHƯƠNG THỨC Các ví dụ về cài đè sai trong mục trước đã nói đến k hái niệm cài chồng phương thức (method overload ). Cài chồng phương thức chỉ đơn giản là có một vài phương thức trùng tên nhưng khác danh sách đối số. Phương thức chồng không liên quan đến đa hình hay thừa kế. Một phương thức cài chồng không phải phương thức cài đè. Cài chồng phương thức cho phép ta tạo nhiều phiên b ản của một phương thức, mỗi phiên bản chấp nhận một danh sách đối số khác n hau, nhằm tạo thuận lợi cho việc gọi phương thức."
+    }
+   ],
+   "context_chars": 2265,
+   "searches": 2,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "overload phương thức chỉ khác kiểu trả về có hợp lệ không",
+     "filter": {
+      "chapter": 7
+     },
+     "results": [
+      {
+       "id": "root_data-p117-B01",
+       "page": 117,
+       "score": 0.90428,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p115-B01",
+       "page": 115,
+       "score": 0.89368,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p116-B00",
+       "page": 116,
+       "score": 0.89108,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p117-B01",
+      "root_data-p115-B01",
+      "root_data-p116-B00"
+     ],
+     "seconds": 0.066
+    },
+    {
+     "event": "search",
+     "tool": "bm25",
+     "query": "overload kiểu trả về phương thức trùng tên",
+     "filter": {
+      "chapter": 7
+     },
+     "results": [
+      {
+       "id": "root_data-p116-B00",
+       "page": 116,
+       "score": 27.8767,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p116-B02",
+       "page": 116,
+       "score": 26.60063,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p117-B01",
+       "page": 117,
+       "score": 21.58927,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p116-B02"
+     ],
+     "seconds": 0.001
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 3491,
+    "completion_tokens": 282,
+    "cost": 0.0004901,
+    "llm_calls": 2
+   },
+   "seconds": 2.76,
+   "error": null
+  },
+  {
+   "query_id": "D12",
+   "split": "dev",
+   "answerable": true,
+   "config": "two_tools",
+   "question": "Phương thức cài đè ở lớp con có được giảm quyền truy nhập so với phương thức của lớp cha không?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "Không. Phương thức cài đè không được giảm quyền truy nhập so với phiên bản ở lớp cha: quyền truy nhập của phương thức ở lớp con phải bằng hoặc rộng hơn. Ví dụ, không thể cài đè một phương thức `public` bằng phiên bản `private` [root_data-p116-B01].",
+   "citations": [
+    "root_data-p116-B01"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p116-B01",
+    "root_data-p120-B00",
+    "root_data-p114-B02",
+    "root_data-p117-B01"
+   ],
+   "context": [
+    {
+     "id": "root_data-p116-B01",
+     "page": 116,
+     "text": "2. Phương thức đè không được giảm quyền truy nhập so v ới phiên bản của lớp cha . Nói cách khác, quyền truy nhập mà phiên bản của l ớp con cho phép phải bằng hoặc rộng hơn phiên bản của lớp cha. Ta không thể cài đè một phương thức public bằng một phiên bản private. Nếu không, tình huống xảy ra là một lời gọi phương thức đã được trình biên dịch chấp nhận vì tư ởng là phương thức public nhưng đến khi nó chạy lại bị máy ảo từ chối vì phiên bản được gọi lại là private. Như vậy, ta đã hiểu thêm về hai mức quyền truy nhập : private và public. Còn hai mức quyền truy nhập khác sẽ được nói đến trong Mục 7.11. Ngoài ra còn có một quy tắc khác về cài đè liên quan đến xử lý ngoại lệ, ta sẽ nói về quy tắc này tại Ch-¬ng 10."
+    },
+    {
+     "id": "root_data-p120-B00",
+     "page": 120,
+     "text": "Bài tập 1. Điền từ thích hợp vào các chỗ trống dưới đây a) Các thành viên có mức truy nhập _________ của lớp c ha có thể được truy nhập từ trong lớp cha và lớp con. b) Trong quan hệ ___________, một đối tượng của một lớ p con có thể được đối xử như một đối tượng thuộc lớp cha. c) Trong quan hệ ___________ giữa hai lớp, đối tượng c ủa một lớp này có biến thực thể là tham chiếu tới đối tượng thuộc lớp kia. 2. Các phát biểu sau đây đúng hay sai: a) Quan hệ HAS-A được cài đặt bằng cơ chế thừa kế. b) Lớp Ô tô có quan hệ IS-A đối với các lớp Bánh lái và Phanh. c) Khi lớp con định nghĩa lại một phương thức của lớp cha trong khi giữ nguyên danh sách tham số của phương thức đó, lớp con được gọi là đã cài chồng phương thức của lớp cha."
+    },
+    {
+     "id": "root_data-p114-B02",
+     "page": 114,
+     "text": "Đôi khi, tại một lớp con, ta cài đè một hành vi của lớp cha, nhưng ta không muốn thay thế hoàn toàn mà chỉ muốn bổ sung một số chi tiết. Chẳng hạn, lớp Account đại diện cho tài khoản ngân hàng chung chun g. Nó cung cấp phương thức withdraw(double) với chức năng rút tiền, phương thứ c này thực hiện quy trình rút tiền cơ bản: trừ số tiền rút khỏi số dư tài khoản ( balance). FeeBasedAccount là loại tài khoản ngân hàng thu phí đối với mỗi lần rút tiền , nghĩa là bên cạnh quy trình rút tiền cơ bản, nó còn làm thêm một việc là trừ phí rút tiền khỏi số dư tài khoản. Như vậy, FeeBasedAccount có cần đến nội dung của bản wit hdraw() được Account cung cấp sẵn, nhưng vẫn phải cài đè vì nội dung đó không đủ dùng. Ta cũng không muốn chép nội dung bản withdraw() của Account vào bản của FeeBasedAccount."
+    },
+    {
+     "id": "root_data-p117-B01",
+     "page": 117,
+     "text": "• Khác biệt duy nhất ở kiểu trả về là không đủ. Nếu kh ông, đó không phải là việc cài chồng hợp lệ, trình biên dịch sẽ cho rằng ta đang định cài đè phương thức. Để overload, ta nhất định phải sửa danh sách tham số. • Có thể nới rộng hoặc hạn chế quyền truy nhập tùy ý. Ta có thể tùy ý thay đổi quyền truy nhập của phương thức chồng vì phương thức mới không bị buộc phải tuân theo hợp đồng đa hình, nếu có, của phương thức cũ."
+    }
+   ],
+   "context_chars": 2962,
+   "searches": 2,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "phương thức ghi đè lớp con quyền truy nhập so với lớp cha",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p116-B01",
+       "page": 116,
+       "score": 0.90577,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p120-B00",
+       "page": 120,
+       "score": 0.9024,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p114-B02",
+       "page": 114,
+       "score": 0.88266,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p116-B01",
+      "root_data-p120-B00",
+      "root_data-p114-B02"
+     ],
+     "seconds": 0.064
+    },
+    {
+     "event": "search",
+     "tool": "bm25",
+     "query": "ghi đè override quyền truy nhập phạm vi hẹp hơn",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p116-B01",
+       "page": 116,
+       "score": 33.54384,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p117-B01",
+       "page": 117,
+       "score": 27.65919,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p115-B03",
+       "page": 115,
+       "score": 26.47759,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p117-B01"
+     ],
+     "seconds": 0.003
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 3843,
+    "completion_tokens": 336,
+    "cost": 0.0005523,
+    "llm_calls": 2
+   },
+   "seconds": 3.03,
+   "error": null
+  },
+  {
+   "query_id": "D13",
+   "split": "dev",
+   "answerable": true,
+   "config": "two_tools",
+   "question": "Lớp cụ thể (concrete class) được định nghĩa như thế nào so với lớp trừu tượng?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "Lớp cụ thể (concrete class) là lớp đủ đặc trưng để tạo thực thể; nói đơn giản, bạn được phép tạo đối tượng thuộc lớp đó [root_data-p125-B04]. Các lớp trong các ví dụ đầu sách đều là lớp cụ thể [root_data-p125-B04].\n\nNgược lại, lớp trừu tượng (abstract class) được khai báo bằng từ khóa `abstract` và trình biên dịch không cho phép tạo thực thể của nó [root_data-p125-B04][root_data-p125-B03]. Tuy nhiên, vẫn có thể dùng tham chiếu kiểu lớp trừu tượng, chủ yếu để có đa hình cho đối số, kiểu trả về và mảng; lớp này cũng là nơi đặt các phương thức dùng chung cho lớp con [root_data-p125-B03].\n\nVề phân loại: một lớp không phải lớp trừu tượng thì là lớp cụ thể. Ví dụ, trong cây phân cấp Animal, nếu Animal, Feline và Canine là lớp trừu tượng thì các lớp còn lại là lớp cụ thể [root_data-p126-B01].",
+   "citations": [
+    "root_data-p125-B04",
+    "root_data-p125-B03",
+    "root_data-p126-B01"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p125-B04",
+    "root_data-p126-B01",
+    "root_data-p130-B02",
+    "root_data-p125-B03",
+    "root_data-p130-B00"
+   ],
+   "context": [
+    {
+     "id": "root_data-p125-B04",
+     "page": 125,
+     "text": "Khi ta thiết kế cấu trúc thừa kế, ta cần quyết định lớp nào trừu tượng , lớp nào cụ thể. Các lớp cụ thể ( concrete ) là các lớp đủ đặc trưng để có thể tạo thực thể. T rong phạm vi lập trình, một lớp cụ thể có nghĩa đơn giản là: ta được phép tạo đối tượng thuộc loại đó. Các lớp ta vẫn thấy trong các ví dụ từ đầu cuốn sách này đều là các lớp được khai báo là lớp cụ thể. Để quy định một lớp là trừu tượng, ta đặt từ khóa abstract vào đầu khai báo lớp. Ví dụ: abstract class Canine extends Animal { public void roam () { } } Kết quả là trình biên dịch sẽ không cho phép ta tạo thực thể của lớp đó nữa."
+    },
+    {
+     "id": "root_data-p126-B01",
+     "page": 126,
+     "text": "8.2. LỚP TRỪU TƯỢNG VÀ LỚP CỤ THỂ Một lớp không phải là lớp trừu tượng thì nó là lớp cụ thể Trong cây phả hệ Animal, nếu ta cho Animal, Feline, và Canine là các lớp trừu tượng, thì còn lại sẽ là các lớp cụ thể."
+    },
+    {
+     "id": "root_data-p130-B02",
+     "page": 130,
+     "text": "Ví dụ này cũng minh họa một mẫu thiết kế có tên Template Method (phương thức khuôn mẫu ). Xem Hình 8.3. Ở đây, Shape là lớp trừu tượng (Ab stractClass) định nghĩa một phương thức khuôn mẫu moveTo, và quy định hai thao tác cơ bản (PrimitiveOperation) là erase và draw mà phương thức khuôn mẫu dùng đến. Circle là lớp con cụ thể (ConcreteClass), nó cài đặt các thao tác cơ bản này. Đây là một trong những mẫu thiết kế thông dụng nhất."
+    },
+    {
+     "id": "root_data-p125-B03",
+     "page": 125,
+     "text": "Một lớp cha không bao giờ được dùng để tạo đối tượn g được gọi là lớp cơ sở trừu tượng , hay ngắn gọn là lớp trừu tượng ( abstract class ). Với những lớp thuộc diện này, trình biên dịch sẽ báo lỗi bất cứ đoạn mã nào định tạo thực thể của lớp đó. Tất nhiên, ta vẫn có thể dùng tham chiếu thuộc kiểu lớp trừu tượng. Thực ra đây là mục đích quan trọng nhất của việc sử dụng lớp trừu t ượng - để có đa hình cho đối số, kiểu trả về, và mảng. Bên cạnh đó là mục đích sử dụng lớp trừu tượng làm nơi đặt các phương thức dùng chung để các lớp con thừa kế."
+    },
+    {
+     "id": "root_data-p130-B00",
+     "page": 130,
+     "text": "abstract public class Shape { protected int x, y; protected Shape (int _x, int _y) { x = _x; y = _y; } abstract public void draw(); abstract public void erase(); public void moveTo(int _x, int _y) { erase(); x = _x; y = _y; draw(); } } public class Circle extends Shape { private double radius; public Circle(int _x, int _y, double _r) { super(_x, _y); radius = _r; } public void draw() { System.out.println(\"Draw circle\"); } public void erase() { System.out.println(\"Erase circle\"); } } Hình 8.2: Ví d ụ đa hình v ới các l ớp Shape."
+    }
+   ],
+   "context_chars": 2676,
+   "searches": 2,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "lớp cụ thể (concrete class) và lớp trừu tượng (abstract class) khác nhau thế nào",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p125-B04",
+       "page": 125,
+       "score": 0.9018,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p126-B01",
+       "page": 126,
+       "score": 0.89058,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p130-B02",
+       "page": 130,
+       "score": 0.88542,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p125-B04",
+      "root_data-p126-B01",
+      "root_data-p130-B02"
+     ],
+     "seconds": 0.073
+    },
+    {
+     "event": "search",
+     "tool": "bm25",
+     "query": "concrete class abstract class",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p125-B04",
+       "page": 125,
+       "score": 19.11436,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p125-B03",
+       "page": 125,
+       "score": 12.13568,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p130-B00",
+       "page": 130,
+       "score": 10.87018,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p125-B03",
+      "root_data-p130-B00"
+     ],
+     "seconds": 0.003
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 3684,
+    "completion_tokens": 567,
+    "cost": 0.0006519,
+    "llm_calls": 2
+   },
+   "seconds": 3.89,
+   "error": null
+  },
+  {
+   "query_id": "D14",
+   "split": "dev",
+   "answerable": true,
+   "config": "two_tools",
+   "question": "Khi tạo một đối tượng Hippo, các hàm khởi tạo của lớp cha, lớp ông cho tới Object được gọi như thế nào?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "Khi chạy `new Hippo()`, hệ thống khởi động một dây chuyền hàm khởi tạo (constructor chaining) [root_data-p151-B01]:\n\n1. `Hippo()` được kích hoạt và gọi hàm khởi tạo của lớp cha là `Animal()` [root_data-p151-B01].\n2. `Animal()` gọi hàm khởi tạo của lớp cha của nó là `Object()` [root_data-p151-B01].\n3. `Object()` chạy xong, hoàn thành phần Object trong đối tượng Hippo, rồi trả quyền điều khiển về `Animal()` [root_data-p151-B01].\n4. `Animal()` khởi tạo xong phần Animal, rồi trả quyền về `Hippo()` [root_data-p151-B01].\n5. `Hippo()` thực hiện phần việc của mình rồi kết thúc; đối tượng Hippo được khởi tạo xong [root_data-p151-B01].\n\nCác phần thừa kế từ lớp cha phải được xây dựng hoàn chỉnh trước khi xây dựng phần của lớp con [root_data-p152-B00]. Trong mã Java, cách duy nhất để gọi hàm khởi tạo lớp cha từ hàm khởi tạo lớp con là lệnh `super()` [root_data-p152-B00].",
+   "citations": [
+    "root_data-p151-B01",
+    "root_data-p152-B00"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p150-B01",
+    "root_data-p151-B01",
+    "root_data-p152-B01",
+    "root_data-p152-B00"
+   ],
+   "context": [
+    {
+     "id": "root_data-p150-B01",
+     "page": 150,
+     "text": "Lấy ví dụ Hippo trong cây thừa kế Animal. Một đối tư ợng Hippo mới chứa trong nó phần Animal, phần Animal đó lại chứa trong nó phần Object. Nếu ta muốn tạo một đối tượng Hippo, ta cũng phải khởi tạo phần Animal của đối tượng Hippo đó để nó có thể sử dụng được những gì được thừa kế từ Animal. Tương tự, để tạo phần Animal đó, ta cũng phải tạo phần Object chứa trong đó. Khi một hàm khởi tạo chạy, nó lập tức gọi hàm khởi tạo của lớp cha. Khi hàm khởi tạo của lớp cha chạy, nó lập tức gọi hàm khởi tạo của lớp ông,... cứ như thế cho đến khi gặp hàm khởi tạo của Object. Quy trình đó đ ược gọi là dây chuyền hàm khởi tạo (Constructor Chaining )."
+    },
+    {
+     "id": "root_data-p151-B01",
+     "page": 151,
+     "text": "Ta minh họa dây chuyền hàm khởi tạo bằng ví dụ trong Hình 9.8. Trong ví dụ đó, mã chương trình TestHippo gọi lệnh new Hippo() để tạo đối tượng Hippo mới, lệnh này khởi động một dây chuyền hàm khởi tạo. Đầu tiên là Hippo() được kích hoạt, Hippo() gọi hàm khởi tạo của lớp cha – Animal (), đến lượt nó, Animal gọi hàm khởi tạo của lớp cha – Object(). Sau khi Object() c hạy xong, hoàn thành khởi tạo phần Object trong đối tượng Hippo, nó kết thúc và t rả quyền điều khiển về cho nơi gọi nó – hàm khởi tạo Animal(). Hàm khởi tạo Animal () khởi tạo xong phần Animal của đối tượng Hippo rồi kết thúc, trả quyền điều kh iển về cho nơi gọi nó – hàm khởi tạo Hippo(). Hippo() thực hiện công việc của mình rồ i kết thúc. Đối tượng Hippo mới đã được khởi tạo xong."
+    },
+    {
+     "id": "root_data-p152-B01",
+     "page": 152,
+     "text": "9.3.2. Truyền đối số cho hàm khởi tạo lớp cha Ta hình dung tình huống sau: con vật nào cũng có một cái tên, nên đối tượng Animal có biến thực thể name. Lớp Animal có một phư ơng thức getName(), nó trả về giá trị của biến thực thể name. Biến thực thể đó được đánh dấu private, nhưng lớp con Hippo thừa kế phương thức getName(). Vấn đề ở đây là Hippo có phương thức getName() qua thừa kế, nhưng lại không có biến thực thể name. Hippo phải nhờ phần Animal của nó giữ biến name và trả về giá trị của name khi ai đó gọi getName() từ một đối tượng Hippo. Vậy khi một đối t ượng Hippo được tạo, nó làm cách nào để gửi cho phần Animal giá trị cần khởi tạ o cho name? Câu trả lời là: dùng giá trị đó làm đối số khi gọi hàm khởi tạo của Animal."
+    },
+    {
+     "id": "root_data-p152-B00",
+     "page": 152,
+     "text": "những gì được thừa kế nên được khởi tạo trước. Các phần thừa kế từ lớp cha phải được xây dựng hoàn chỉnh trước khi có thể xây dựng những phần của lớp con. Lưu ý rằng cách duy nhất để gọi hàm khởi tạo lớp cha từ trong hàm khởi tạo lớp con là lệnh super() chứ không gọi đích danh tên hàm như Animal() hay Object(). Lệnh gọi hàm khởi tạo lớp cha mà trình biên dịch sử dụng bao giờ cũng là super() không có đối số. Nhưng nếu ta tự gọi thì có thể dùng super() với đối số để gọi một hàm khởi tạo cụ thể trong các hàm khởi tạo ch ồng nhau của lớp cha."
+    }
+   ],
+   "context_chars": 2959,
+   "searches": 2,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "Khi tạo đối tượng Hippo, hàm khởi tạo lớp cha, lớp ông và Object được gọi như thế nào",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p150-B01",
+       "page": 150,
+       "score": 0.92432,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p151-B01",
+       "page": 151,
+       "score": 0.90927,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p152-B01",
+       "page": 152,
+       "score": 0.90539,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p150-B01",
+      "root_data-p151-B01",
+      "root_data-p152-B01"
+     ],
+     "seconds": 0.066
+    },
+    {
+     "event": "search",
+     "tool": "bm25",
+     "query": "Hippo constructor super Object thứ tự gọi hàm khởi tạo",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p152-B00",
+       "page": 152,
+       "score": 45.90331,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p150-B01",
+       "page": 150,
+       "score": 44.96821,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p151-B02",
+       "page": 151,
+       "score": 41.43908,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p152-B00"
+     ],
+     "seconds": 0.004
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 3939,
+    "completion_tokens": 637,
+    "cost": 0.0007124,
+    "llm_calls": 2
+   },
+   "seconds": 4.24,
+   "error": null
+  },
+  {
+   "query_id": "D15",
+   "split": "dev",
+   "answerable": true,
+   "config": "two_tools",
+   "question": "Sao chép nông (shallow copy) khác sao chép sâu (deep copy) của đối tượng ở điểm nào?",
+   "context_has_evidence": true,
+   "status": "answered",
+   "answer": "**Sao chép nông (shallow copy)** sao chép từng bit của các biến thực thể. Nếu biến thực thể là tham chiếu, đối tượng mới chỉ giữ tham chiếu tới cùng đối tượng con với đối tượng cũ. Ví dụ, hai tài khoản sao chép nông sẽ cùng trỏ tới một đối tượng `Customer` làm chủ sở hữu [root_data-p154-B01].\n\n**Sao chép sâu (deep copy)** tạo bản sao hoàn chỉnh, bao gồm cả các đối tượng thành phần. Hai đối tượng sau khi sao chép sâu hoàn toàn tách biệt và không dùng chung đối tượng thành phần nào [root_data-p154-B02].\n\nTóm lại, điểm khác biệt nằm ở các đối tượng được tham chiếu: shallow copy dùng chung chúng, còn deep copy tạo mới chúng.\n\nGiáo trình cũng lưu ý rằng Java hỗ trợ cả hai kiểu qua `clone` và `Cloneable`, nhưng nhiều chuyên gia khuyên không dùng vì có lỗi thiết kế. Thay vào đó nên dùng hàm khởi tạo sao chép (copy constructor) [root_data-p154-B03].",
+   "citations": [
+    "root_data-p154-B01",
+    "root_data-p154-B02",
+    "root_data-p154-B03"
+   ],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p154-B02",
+    "root_data-p154-B03",
+    "root_data-p154-B01"
+   ],
+   "context": [
+    {
+     "id": "root_data-p154-B02",
+     "page": 154,
+     "text": "Trong những trường hợp khác, ta muốn tạo bản sao củ a cả các đối tượng thành phần. Sao chép sâu (deep copy ) tạo bản sao hoàn chỉnh của một đối tượng có sẵn. Chẳng hạn, khi thực hiện sao chép sâu đối với một đố i tượng là danh sách chứa các đối tượng khác, kết quả là các đối tượng thành phần cũng được tạo bản sao hoàn chỉnh. Ta được đối tượng danh sách mới chứa các đối tượng thành phần mới, tách biệt hoàn toàn với danh sách cũ (thay vì tình trạng các đối tượng thành phần đồng thời nằm trong cả hai danh sách cũ và mới). Lấy ví d ụ khác: một căn hộ có nhiều phòng, mỗi phòng có các đồ đạc nội thất. Khi tạo bả n sao của một căn hộ, nhằm tạo ra một căn hộ khác giống hệt căn hộ ban đầu, ta phả i sao chép cả các phòng cũng như tất cả đồ đạc nội thất chứa trong đó."
+    },
+    {
+     "id": "root_data-p154-B03",
+     "page": 154,
+     "text": "Không phả i tình trạng hai căn hộ nhưng lại có chung các phòng và chung nội thất. Để có được kiể u sao chép hoàn toàn này, lập trình viên phải tự cài đặt quy trình sao chép. Java có hỗ trợ sao chép nông và sao chép sâu với ph ương thức clone và interface Cloneable. Tuy nhiên, nhiều chuyên gia, trong đó có Joshua Bloch – tác giả cuốn Effective Java [7], khuyên không nên sử dụng hỗ trợ này do nó có l ỗi thiết kế và hiệu lực thực thi không ổn định, thay vào đó, nên dùng hàm khởi tạo sao chép. Hàm khởi tạo sao chép (copy constructor ) là hàm khởi tạo với tham số duy nhất là một tham chiếu đối tượng và hàm này sẽ khởi tạo đối tượng mới sao cho có nội dung giống hệt đối tượng đã cho. Chẳng hạn:"
+    },
+    {
+     "id": "root_data-p154-B01",
+     "page": 154,
+     "text": "Có hai kiểu sao chép nội dung đối tượng. Sao chép nông (shallow copy ) là sao chép từng bit của các biến thực thể. Đối tượng mới sẽ có các biến thực thể có giá trị bằng các biến tương ứng của đối tượng cũ, kể cả các biến thực thể là tham chiếu. Do đó, nếu đối tượng cũ có một tham chiếu tới một đối tượng khác thì đối tượng mới cũng có tham chiếu tới chính đối tượng đó. Đôi khi, đây là kết quả đúng. Chẳng hạn như khi ta tạo bản sao của một đối tượng Account (t ài khoản ngân hàng), cả hai tài khoản mới và cũ đều có chung một chủ sở hữu tài kho ản, nghĩa là biến thực thể owner của hai đối tượng này đều chiếu tới cùng một đối tượng Customer (khách hàng) – người sở hữu tài khoản."
+    }
+   ],
+   "context_chars": 2359,
+   "searches": 2,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "shallow copy khác deep copy đối tượng Java",
+     "filter": {
+      "chapter": 9
+     },
+     "results": [
+      {
+       "id": "root_data-p154-B02",
+       "page": 154,
+       "score": 0.8867,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p154-B03",
+       "page": 154,
+       "score": 0.87797,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p154-B01",
+       "page": 154,
+       "score": 0.87633,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p154-B02",
+      "root_data-p154-B03",
+      "root_data-p154-B01"
+     ],
+     "seconds": 0.064
+    },
+    {
+     "event": "search",
+     "tool": "bm25",
+     "query": "shallow copy deep copy",
+     "filter": {
+      "chapter": 9
+     },
+     "results": [
+      {
+       "id": "root_data-p154-B01",
+       "page": 154,
+       "score": 15.47763,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p154-B02",
+       "page": 154,
+       "score": 14.45562,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p154-B03",
+       "page": 154,
+       "score": 4.67245,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [],
+     "seconds": 0.001
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 3546,
+    "completion_tokens": 644,
+    "cost": 0.0006766,
+    "llm_calls": 2
+   },
+   "seconds": 4.23,
+   "error": null
+  },
+  {
+   "query_id": "U01",
+   "split": "dev",
+   "answerable": false,
+   "config": "two_tools",
+   "question": "Lớp sealed trong Java dùng để làm gì và khai báo ra sao?",
+   "context_has_evidence": null,
+   "status": "abstain",
+   "answer": "KHÔNG ĐỦ BẰNG CHỨNG: các đoạn tìm được chỉ nói về lớp `final` (không thể có lớp con) và một số nội dung không liên quan đến lớp sealed. Tài liệu không có phần nào mô tả lớp sealed, từ khóa `sealed`, `permits` hay cách khai báo nó. Cần thêm nội dung về lớp sealed (ví dụ chương về kế thừa hoặc các tính năng Java mới) để trả lời.",
+   "citations": [],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p172-B00",
+    "root_data-p027-B00",
+    "root_data-p045-B00",
+    "root_data-p151-B00",
+    "root_data-p024-B01"
+   ],
+   "context": [
+    {
+     "id": "root_data-p172-B00",
+     "page": 172,
+     "text": "3. Một lớp final là lớp không thể có lớp con . An toàn là lí do cho việc khai báo final. Ví dụ, nếu có ai đó viết lớp con của String và cài đè các phương thức, người ta có thể nh ờ đa hình mà dùng các đối tượng thuộc lớp mới này cho các đoạn mã chương trìn h vốn được viết cho String. Đây là tình huống không được mong muốn, do đó Strin g được đặt chế độ final để tránh xảy ra tình huống đó. Nếu ta cần dựa vào cài đặt cụ thể của các phương thức trong một lớp, hãy cho lớp đó ở dạng final. Nếu ta chỉ cần cố định cài đặt của một vài phương thức trong một lớp, ta đặt chế độ final c ho các phương thức đó chứ không cần đặt cho cả lớp. Tất nhiên, nếu một lớp là lớp final thì các phương thức trong đó nghiễm nhiên không thể bị cài đè, ta không cần đặt chế độ final cho chúng nữa. Những điểm quan trọng:"
+    },
+    {
+     "id": "root_data-p027-B00",
+     "page": 27,
+     "text": "lớp được khai báo với từ khóa này cần được đặt tại m ột file có tên file trùng với tên lớp, chính xác đến cả chữ hoa hay chữ thường. Ví dụ , lớp HelloWorld ở trên nằm trong file mã nguồn có tên HelloWorld.java. Sau khi biên dịch file mã nguồn HelloWorld.java, ta sẽ được file bytecode HelloWorld .class – file có thể chạy bằng trình thông dịch Java. Phụ lục A hướng dẫn chi tiết về cách sử dụng công cụ dòng lệnh JDK để dịch và chạy chương trình. Đây là bộ phần mềm miễn phí, có thể được tải về từ trang web của Oracle 3."
+    },
+    {
+     "id": "root_data-p045-B00",
+     "page": 45,
+     "text": "Bài tập 1. Điền từ thích hợp vào chỗ trống trong mỗi câu sau: a) Mỗi khai báo lớp mà bắt đầu bằng từ khóa _______ ph ải được lưu trong một file có tên trùng với tên lớp và kết thúc bằng phần mở rộng .java b) Từ khóa ______ tạo một đối tượng thuộc lớp có tên đặt ở bên phải từ khóa. c) Mỗi biến khi khai báo phải được chỉ rõ một _______ và một ______. 2. Các phát biểu sau đây đúng hay sai? Nếu sai, hãy giải thích. a) Lớp nào có chứa phương thức public static void main (String [] args) thì có thể được dùng để chạy ứng dụng. b) Một tập lệnh chứa trong một cặp ngoặc {} được gọi là một khối lệnh c) Một lệnh có điều kiện cho phép một hành động được l ặp đi lặp lại trong khi một điều kiện nào đó vẫn giữ giá trị true."
+    },
+    {
+     "id": "root_data-p151-B00",
+     "page": 151,
+     "text": "public class Animal { public Animal() { System.out.println(\"Making an Animal\"); } } public class Hippo extends Animal { public Hippo() { System.out.println(\"Making a Hippo\"); } } public class TestHippo { public static void main (String[] args) { System.out.println(\"Starting...\"); Hippo h = new Hippo(); } } % java TestHippo Starting... Making an Animal Making a Hippo Hình 9.8: Dây chuy ền hàm kh ởi t ạo."
+    },
+    {
+     "id": "root_data-p024-B01",
+     "page": 24,
+     "text": "• Dịch : Trình biên dịch Java ( javac ) lấy file mã nguồn và dịch thành các lệnh bằng bytecode mà máy ảo Java hiểu được, kết quả là các file có đuôi .class. • Nạp và chạy : Trình nạp Java ( java ) sẽ dùng máy ảo Java để chạy chương trình đã được dịch ra dạng bytecode."
+    }
+   ],
+   "context_chars": 3064,
+   "searches": 2,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "lớp sealed trong Java là gì và khai báo như thế nào",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p172-B00",
+       "page": 172,
+       "score": 0.87846,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p027-B00",
+       "page": 27,
+       "score": 0.87373,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p045-B00",
+       "page": 45,
+       "score": 0.86908,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p172-B00",
+      "root_data-p027-B00",
+      "root_data-p045-B00"
+     ],
+     "seconds": 0.063
+    },
+    {
+     "event": "search",
+     "tool": "bm25",
+     "query": "sealed class permits Java",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p151-B00",
+       "page": 151,
+       "score": 6.65942,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p024-B01",
+       "page": 24,
+       "score": 6.59116,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p153-B00",
+       "page": 153,
+       "score": 5.72918,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p151-B00",
+      "root_data-p024-B01"
+     ],
+     "seconds": 0.002
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 3783,
+    "completion_tokens": 302,
+    "cost": 0.0005293,
+    "llm_calls": 2
+   },
+   "seconds": 3.65,
+   "error": null
+  },
+  {
+   "query_id": "U02",
+   "split": "dev",
+   "answerable": false,
+   "config": "two_tools",
+   "question": "Biểu thức lambda trong Java có cú pháp như thế nào?",
+   "context_has_evidence": null,
+   "status": "abstain",
+   "answer": "KHÔNG ĐỦ BẰNG CHỨNG: các đoạn tìm được (root_data-p041-B00, root_data-p175-B01, root_data-p167-B00, root_data-p169-B03, root_data-p183-B01, root_data-p196-B02) không nói về biểu thức lambda. Chúng chỉ đề cập vòng lặp for, ngoại lệ, phương thức static, khối khởi tạo static và xử lý file. Cần tài liệu có chương về lambda hoặc giao diện hàm (functional interface) để trả lời.",
+   "citations": [],
+   "invalid_citations": [],
+   "context_ids": [
+    "root_data-p041-B00",
+    "root_data-p175-B01",
+    "root_data-p167-B00",
+    "root_data-p169-B03",
+    "root_data-p183-B01",
+    "root_data-p196-B02"
+   ],
+   "context": [
+    {
+     "id": "root_data-p041-B00",
+     "page": 41,
+     "text": "thành phần đó cũng có thể là biểu thức rỗng nếu cần thiết, nhưng kể cả khi đó vẫn phải có đủ hai dấu chấm phảy. Ta có thể khai báo biến ngay trong phần khởi_tạo của vòng for, chẳng hạn đối với biến con đếm. Nhưng các biến được khai báo tại đ ó chỉ có hiệu lực ở bên trong cấu trúc lặp. Ví dụ: for (int count = 1; count <= number; count++) cout << count << \", \"; import java.util.Scanner; public class ]or[xample { public static void main(String[] args) { float sum = 0; int subjects = 10; Scanner input = new Scanner(System.in); System.out.print( \"Enter the marks for \" + subjects + \" subjects: \"); for (int count = 0; count < subjects; count++) { float mark; mark = input.nextFloat(); sum += mark; } System.out.print(\"Average mark = \"+sum/subjects); } } Hình 2.9: Ví d ụ v ề vòng l ặp for."
+    },
+    {
+     "id": "root_data-p175-B01",
+     "page": 175,
+     "text": "11.1.1. Tình huống sự cố Đầu tiên, chúng ta lấy một ví dụ về ngoại lệ của Java . Trong Hình 11.1 là một chương trình đơn giản trong đó yêu cầu người dùng n hập hai số nguyên rồi tính thương của chúng và in ra màn hình. import java .util .* ; public class TestException { public static void main (String args []) { Scanner scanner = new Scanner(System.in); System.out.print( \"Numerator: \" ); int numerator = scanner.nextInt(); System.out.print( \"Denominator: \" ); int denominator = scanner.nextInt(); int result = numerator/denominator; System.out.printf(\"\\nResult: %d / %d = %d\\n\", numerator, denominator, result ); } } Hình 11.1: Một ch ươ ng trình ch ưa x ử lý ngo ại l ệ."
+    },
+    {
+     "id": "root_data-p167-B00",
+     "page": 167,
+     "text": "public class Cow { private String name; private static int numOfCows = 0; public Cow(String theName) { name = theName; numOfCows++; } public static int getCount() { return numOfCows; } public String getName() { return name; } } public class CountCows { public static void main(String[] args) { System.out.println(Cow.getCount()); Cow c1 = new Cow(); System.out.println(Cow.getCount()); Cow c2 = new Cow(); System.out.println(c2.getCount()); } } có thể gọi từ tên lớp hoặc gọi từ tham chiếu đối tượng phương thức lớp được khai báo bằng từ khóa static, không động đến biến thực thể % java CountCows 0 1 2 trước khi có đối tượng Cow đầu tiên Hình 10.2. Ph ươ ng thức l ớp."
+    },
+    {
+     "id": "root_data-p169-B03",
+     "page": 169,
+     "text": "Cách thứ hai: Java cung cấp một cú pháp đặc biệt là khối khởi tạo static (static initialization block) – một khối mã được bọc trong cặp ngoặc { } và có tiêu đề là từ khóa static. static { numOfCows = 0; } Một lớp có thể có vài khối khởi tạo static đặt ở bấ t cứ đâu trong định nghĩa lớp. Chúng được đảm bảo sẽ được kích hoạt theo đúng thứ tự xuất hiện trong mã. Và"
+    },
+    {
+     "id": "root_data-p183-B01",
+     "page": 183,
+     "text": "Lưu ý rằng, về mặt cú pháp, ta không thể chèn mã vào giữa các phần try, catch, và finally trong một khối try/catch; khối try thì bắ t buộc phải có, nhưng các khối catch và finally thì không; tuy nhiên, sau một khối try phải có ít nhất một khối catch hoặc finally."
+    },
+    {
+     "id": "root_data-p196-B02",
+     "page": 196,
+     "text": "Nếu file dữ liệu sẽ được sử dụng bởi các chương trì nh khác, ta dùng file lưu trữ dạng text : Viết một file dạng text với cú pháp mà các chương trình khác có thể hiểu được. Ví dụ, dùng tab để tách giữa các giá trị dữ l iệu, dùng dấu xuống dòng để tách giữa các đối tượng."
+    }
+   ],
+   "context_chars": 3456,
+   "searches": 2,
+   "events": [
+    {
+     "event": "search",
+     "tool": "dense",
+     "query": "cú pháp biểu thức lambda trong Java",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p041-B00",
+       "page": 41,
+       "score": 0.87925,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p175-B01",
+       "page": 175,
+       "score": 0.87625,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p167-B00",
+       "page": 167,
+       "score": 0.87192,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p041-B00",
+      "root_data-p175-B01",
+      "root_data-p167-B00"
+     ],
+     "seconds": 0.063
+    },
+    {
+     "event": "search",
+     "tool": "bm25",
+     "query": "lambda Java cú pháp",
+     "filter": null,
+     "results": [
+      {
+       "id": "root_data-p169-B03",
+       "page": 169,
+       "score": 13.65176,
+       "rank": 1
+      },
+      {
+       "id": "root_data-p183-B01",
+       "page": 183,
+       "score": 13.36959,
+       "rank": 2
+      },
+      {
+       "id": "root_data-p196-B02",
+       "page": 196,
+       "score": 12.7024,
+       "rank": 3
+      }
+     ],
+     "added_to_context": [
+      "root_data-p169-B03",
+      "root_data-p183-B01",
+      "root_data-p196-B02"
+     ],
+     "seconds": 0.002
+    },
+    {
+     "event": "answer"
+    }
+   ],
+   "usage": {
+    "prompt_tokens": 3878,
+    "completion_tokens": 316,
+    "cost": 0.0005458,
+    "llm_calls": 2
+   },
+   "seconds": 2.93,
+   "error": null
+  }
+ ]
+}

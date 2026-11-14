@@ -1,0 +1,287 @@
+{
+ "base": {
+  "aggregate": {
+   "cases": 11,
+   "provider_errors": 0,
+   "tool_use": {
+    "n": 11,
+    "N": 11
+   },
+   "grounded_answer": {
+    "0": 0,
+    "1": 0,
+    "2": 9,
+    "N": 9,
+    "mean": 2.0
+   },
+   "citation_validity": {
+    "n": 21,
+    "N": 23
+   },
+   "answer_citation_coverage": {
+    "n": 9,
+    "N": 9
+   },
+   "abstention": {
+    "n": 2,
+    "N": 2
+   },
+   "false_abstention": {
+    "n": 0,
+    "N": 9
+   },
+   "context_grade": {
+    "0": 0,
+    "1": 1,
+    "2": 8,
+    "mean": 1.89
+   }
+  },
+  "reviews": [
+   {
+    "query_id": "T01",
+    "citation_support": [
+     true,
+     true,
+     true
+    ],
+    "note": "",
+    "answer_grade": 2
+   },
+   {
+    "query_id": "T02",
+    "citation_support": [
+     true,
+     true
+    ],
+    "note": "",
+    "answer_grade": 2
+   },
+   {
+    "query_id": "T03",
+    "citation_support": [
+     true,
+     true
+    ],
+    "note": "",
+    "answer_grade": 2
+   },
+   {
+    "query_id": "T04",
+    "citation_support": [
+     true,
+     false
+    ],
+    "note": "p193-B01 là bài tập đúng/sai, không nói finally luôn chạy -> citation không hỗ trợ",
+    "answer_grade": 2
+   },
+   {
+    "query_id": "T05",
+    "citation_support": [
+     true,
+     true,
+     false
+    ],
+    "note": "p194-B00 là đề bài tập, không chứng minh quy tắc thứ tự catch -> citation không hỗ trợ",
+    "answer_grade": 2
+   },
+   {
+    "query_id": "T06",
+    "citation_support": [
+     true,
+     true
+    ],
+    "note": "Context có p192-B00 (RuntimeException không bắt buộc) nhưng thiếu câu 'và các lớp con'",
+    "answer_grade": 2
+   },
+   {
+    "query_id": "T07",
+    "citation_support": [
+     true,
+     true
+    ],
+    "note": "Evidence tương đương nằm ở trang 201 (gold ghi trang 199); đoạn trích gold không có trong context",
+    "answer_grade": 2
+   },
+   {
+    "query_id": "T08",
+    "citation_support": [
+     true,
+     true,
+     true
+    ],
+    "note": "",
+    "answer_grade": 2
+   },
+   {
+    "query_id": "T09",
+    "citation_support": [
+     true,
+     true,
+     true
+    ],
+    "note": "",
+    "answer_grade": 2
+   },
+   {
+    "query_id": "U03",
+    "citation_support": [
+     true
+    ],
+    "note": "Từ chối đúng, nêu rõ interface chỉ có phương thức trừu tượng",
+    "abstention_correct": true
+   },
+   {
+    "query_id": "U04",
+    "citation_support": [],
+    "note": "Từ chối đúng, không trích dẫn",
+    "abstention_correct": true
+   }
+  ]
+ },
+ "two_tools": {
+  "aggregate": {
+   "cases": 11,
+   "provider_errors": 0,
+   "tool_use": {
+    "n": 11,
+    "N": 11
+   },
+   "grounded_answer": {
+    "0": 0,
+    "1": 0,
+    "2": 9,
+    "N": 9,
+    "mean": 2.0
+   },
+   "citation_validity": {
+    "n": 27,
+    "N": 27
+   },
+   "answer_citation_coverage": {
+    "n": 9,
+    "N": 9
+   },
+   "abstention": {
+    "n": 2,
+    "N": 2
+   },
+   "false_abstention": {
+    "n": 0,
+    "N": 9
+   },
+   "context_grade": {
+    "0": 0,
+    "1": 0,
+    "2": 9,
+    "mean": 2.0
+   }
+  },
+  "reviews": [
+   {
+    "query_id": "T01",
+    "citation_support": [
+     true,
+     true,
+     true
+    ],
+    "note": "",
+    "answer_grade": 2
+   },
+   {
+    "query_id": "T02",
+    "citation_support": [
+     true,
+     true
+    ],
+    "note": "",
+    "answer_grade": 2
+   },
+   {
+    "query_id": "T03",
+    "citation_support": [
+     true,
+     true
+    ],
+    "note": "",
+    "answer_grade": 2
+   },
+   {
+    "query_id": "T04",
+    "citation_support": [
+     true,
+     true
+    ],
+    "note": "",
+    "answer_grade": 2
+   },
+   {
+    "query_id": "T05",
+    "citation_support": [
+     true,
+     true,
+     true
+    ],
+    "note": "",
+    "answer_grade": 2
+   },
+   {
+    "query_id": "T06",
+    "citation_support": [
+     true,
+     true
+    ],
+    "note": "",
+    "answer_grade": 2
+   },
+   {
+    "query_id": "T07",
+    "citation_support": [
+     true,
+     true
+    ],
+    "note": "Evidence tương đương ở trang 201; đoạn gold trang 199 không có trong context",
+    "answer_grade": 2
+   },
+   {
+    "query_id": "T08",
+    "citation_support": [
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "note": "",
+    "answer_grade": 2
+   },
+   {
+    "query_id": "T09",
+    "citation_support": [
+     true,
+     true,
+     true
+    ],
+    "note": "",
+    "answer_grade": 2
+   },
+   {
+    "query_id": "U03",
+    "citation_support": [
+     true
+    ],
+    "note": "Từ chối đúng",
+    "abstention_correct": true
+   },
+   {
+    "query_id": "U04",
+    "citation_support": [
+     true,
+     true
+    ],
+    "note": "Từ chối đúng; hai citation chỉ hỗ trợ các câu hẹp (test phần mềm nói chung)",
+    "abstention_correct": true
+   }
+  ]
+ }
+}
